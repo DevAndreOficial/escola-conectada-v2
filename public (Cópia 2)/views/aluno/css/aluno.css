@@ -1,0 +1,408 @@
+/* Aluno Specific Styles */
+
+/* Notas Card */
+.nota-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.nota-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.nota-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.nota-disciplina {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.nota-professor {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.nota-valor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  min-width: 60px;
+}
+
+.nota-valor.positiva {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.nota-valor.negativa {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.nota-valor.pendente {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+}
+
+.nota-valor-numero {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.nota-valor-label {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.nota-detalhes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.nota-detalhe {
+  text-align: center;
+}
+
+.nota-detalhe-valor {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.nota-detalhe-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.125rem;
+}
+
+/* Horario Table */
+.horario-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.horario-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.horario-table th,
+.horario-table td {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.horario-table th {
+  background: var(--bg-light);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+.horario-table th:first-child {
+  width: 100px;
+}
+
+.horario-table td {
+  font-size: 0.875rem;
+  vertical-align: middle;
+  min-height: 60px;
+}
+
+.horario-cell {
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.horario-cell.intervalo {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  font-style: italic;
+}
+
+.horario-cell.educacao-fisica {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.horario-cell.lingua {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
+
+/* Faltas Summary */
+.faltas-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.faltas-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faltas-item-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faltas-item-content {
+  flex: 1;
+}
+
+.faltas-item-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1;
+}
+
+.faltas-item-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Materiais Card */
+.material-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.material-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.material-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.material-icon.pdf {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.material-icon.video {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.material-icon.doc {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.material-icon.link {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
+
+.material-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.material-title {
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.material-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.material-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Boletim Preview */
+.boletim-preview {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.boletim-header {
+  background: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.boletim-header h4 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.boletim-header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-size: 0.875rem;
+}
+
+.boletim-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.boletim-info-item {
+  font-size: 0.875rem;
+}
+
+.boletim-info-label {
+  color: var(--text-muted);
+}
+
+.boletim-info-value {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-left: 0.5rem;
+}
+
+.boletim-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.boletim-table th,
+.boletim-table td {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+.boletim-table th {
+  background: var(--bg-light);
+  font-weight: 600;
+}
+
+.boletim-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+
+.boletim-table .nota-positiva {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.boletim-table .nota-negativa {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Progress Ring */
+.progress-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.progress-ring-circle {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.progress-ring-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.progress-ring-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1;
+}
+
+.progress-ring-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nota-detalhes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .boletim-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .horario-table {
+    font-size: 0.75rem;
+  }
+  
+  .horario-table th,
+  .horario-table td {
+    padding: 0.5rem;
+  }
+}
