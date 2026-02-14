@@ -272,6 +272,7 @@
                     <td>10ª</td>
                     <td>+244 922 000 004</td>
                     <td>
+                      <a href="aluno-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#alunoModal" data-nome="Ana Pereira" data-processo="2026-001"
                         data-curso="Informática" data-ano="10ª" data-contacto="+244 922 000 004">Editar</button>
@@ -285,6 +286,7 @@
                     <td>11ª</td>
                     <td>+244 922 000 005</td>
                     <td>
+                      <a href="aluno-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#alunoModal" data-nome="Pedro Santos" data-processo="2026-002"
                         data-curso="Física" data-ano="11ª" data-contacto="+244 922 000 005">Editar</button>
@@ -299,7 +301,7 @@
 
         <!-- Modal: Adicionar / Editar Aluno -->
         <div class="modal fade" id="alunoModal" tabindex="-1">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="alunoModalTitle">Novo Aluno</h5>
@@ -308,20 +310,57 @@
               <form id="formAluno">
                 <div class="modal-body">
                   <input type="hidden" id="alunoId" value="">
-                  <div class="mb-3"><label class="form-label">Nome</label><input id="alunoNome" class="form-control">
+                  <div class="mb-3">
+                    <label class="form-label">Nome Completo</label>
+                    <input id="alunoNome" class="form-control">
                   </div>
-                  <div class="mb-3"><label class="form-label">Nº Processo</label><input id="alunoProcesso"
-                      class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Curso</label><input id="alunoCurso" class="form-control">
+                  <div class="mb-3">
+                    <label class="form-label">Nº Processo</label>
+                    <input id="alunoProcesso" class="form-control">
                   </div>
-                  <div class="mb-3"><label class="form-label">Ano</label><input id="alunoAno" class="form-control">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Classe</label>
+                        <select id="alunoClasse" class="form-select form-control">
+                          <option value="">Selecione uma classe</option>
+                          <option value="10ª Classe">10ª Classe</option>
+                          <option value="11ª Classe">11ª Classe</option>
+                          <option value="12ª Classe">12ª Classe</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Curso</label>
+                        <select id="alunoCurso" class="form-select form-control">
+                          <option value="">Selecione um curso</option>
+                          <option value="Informática">Informática</option>
+                          <option value="Administração">Administração</option>
+                          <option value="Eletrónica">Eletrónica</option>
+                          <option value="Contabilidade">Contabilidade</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                  <div class="mb-3"><label class="form-label">Contacto</label><input id="alunoContacto"
-                      class="form-control"></div>
+                  <div class="mb-3">
+                    <label class="form-label">Turma</label>
+                    <select id="alunoTurma" class="form-select form-control">
+                      <option value="">Selecione uma turma</option>
+                      <option value="Turma A">Turma A</option>
+                      <option value="Turma B">Turma B</option>
+                      <option value="Turma C">Turma C</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Telefone/Contacto</label>
+                    <input id="alunoContacto" class="form-control" type="tel">
+                  </div>
                 </div>
-                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
-                    data-bs-dismiss="modal">Cancelar</button><button type="submit"
-                    class="btn btn-primary">Guardar</button></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
               </form>
             </div>
           </div>

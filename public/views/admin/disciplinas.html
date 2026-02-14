@@ -265,6 +265,7 @@
                     <td>Carlos Mendes</td>
                     <td>Informática, Electrónica</td>
                     <td>
+                      <a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#turmaModal" data-codigo="TUR-102" data-curso="Electrónica"
                         data-ciclo="II Ciclo" data-prof="Carlos Mendes" data-num="28">Editar</button>
@@ -278,6 +279,7 @@
                     <td>Ana Paula</td>
                     <td>Ciências Físicas e Biológicas</td>
                     <td>
+                      <a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#turmaModal" data-codigo="TUR-103" data-curso="CFB" data-ciclo="II Ciclo"
                         data-prof="Ana Paula" data-num="30">Editar</button>
@@ -293,32 +295,72 @@
 
         <!-- Modal: Adicionar / Editar Turma -->
         <div class="modal fade" id="turmaModal" tabindex="-1">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="turmaModalTitle">Nova Turma</h5>
+                <h5 class="modal-title" id="turmaModalTitle">Nova Disciplina</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
               </div>
               <form id="formTurma">
                 <div class="modal-body">
                   <input type="hidden" id="turmaId" value="">
-                  <div class="mb-3"><label class="form-label">Código</label><input id="turmaCodigo"
-                      class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Curso</label><input id="turmaCurso" class="form-control">
+                  <div class="mb-3">
+                    <label class="form-label">Nome da Disciplina</label>
+                    <input id="turmaCodigo" class="form-control" placeholder="Ex: Física, Matemática">
                   </div>
-                  <div class="mb-3"><label class="form-label">Ciclo</label><select id="turmaCiclo"
-                      class="form-control form-select">
-                      <option>I Ciclo</option>
-                      <option>II Ciclo</option>
-                    </select></div>
-                  <div class="mb-3"><label class="form-label">Professor Titular</label><input id="turmaProf"
-                      class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Nº Alunos</label><input id="turmaNum" type="number"
-                      class="form-control"></div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Cursos Relacionados</label>
+                        <div class="border rounded p-2" style="max-height: 150px; overflow-y: auto;">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cur_inf" value="Informática" name="cursos">
+                            <label class="form-check-label" for="cur_inf">Informática</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cur_adm" value="Administração" name="cursos">
+                            <label class="form-check-label" for="cur_adm">Administração</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cur_ele" value="Eletrónica" name="cursos">
+                            <label class="form-check-label" for="cur_ele">Eletrónica</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cur_con" value="Contabilidade" name="cursos">
+                            <label class="form-check-label" for="cur_con">Contabilidade</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Classes</label>
+                        <div class="border rounded p-2" style="max-height: 150px; overflow-y: auto;">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cls_10" value="10ª Classe" name="classes">
+                            <label class="form-check-label" for="cls_10">10ª Classe</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cls_11" value="11ª Classe" name="classes">
+                            <label class="form-check-label" for="cls_11">11ª Classe</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cls_12" value="12ª Classe" name="classes">
+                            <label class="form-check-label" for="cls_12">12ª Classe</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Carga Horária Semanal</label>
+                    <input id="turmaCurso" type="number" class="form-control" placeholder="Ex: 3 horas">
+                  </div>
                 </div>
-                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
-                    data-bs-dismiss="modal">Cancelar</button><button type="submit"
-                    class="btn btn-primary">Guardar</button></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
               </form>
             </div>
           </div>

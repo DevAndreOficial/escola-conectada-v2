@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-AO">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/sidebar.css">
 </head>
+
 <body>
   <div class="main-wrapper">
     <div class="sidebar-overlay"></div>
-     <!-- Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar">
       <button class="sidebar-close">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -195,7 +197,18 @@
     </aside>
 
     <main class="main-content">
-      <header class="main-header"><div class="header-left"><button class="mobile-toggle">☰</button><h1 class="header-title">Turmas</h1></div><div class="header-right"><div class="header-user"><div class="header-user-avatar">AD</div><div class="header-user-info"><span class="header-user-name">Administrador</span><span class="header-user-role">Administração</span></div></div></div></header>
+      <header class="main-header">
+        <div class="header-left"><button class="mobile-toggle">☰</button>
+          <h1 class="header-title">Turmas</h1>
+        </div>
+        <div class="header-right">
+          <div class="header-user">
+            <div class="header-user-avatar">AD</div>
+            <div class="header-user-info"><span class="header-user-name">Administrador</span><span
+                class="header-user-role">Administração</span></div>
+          </div>
+        </div>
+      </header>
 
       <div class="page-content">
         <div class="page-header d-flex justify-content-between align-items-center">
@@ -212,14 +225,17 @@
             <div class="row g-3 align-items-end">
               <div class="col-md-5">
                 <label class="form-label">Pesquisar</label>
-                <input id="filterTurmaSearch" type="text" class="form-control" placeholder="Código, curso, professor...">
+                <input id="filterTurmaSearch" type="text" class="form-control"
+                  placeholder="Código, curso, professor...">
               </div>
               <div class="col-md-4">
-                <label class="form-label">Ciclo</label>
+                <label class="form-label">Classe</label>
                 <select id="filterTurmaCiclo" class="form-control form-select">
                   <option value="">Todos</option>
-                  <option>I Ciclo</option>
-                  <option>II Ciclo</option>
+                  <option>10ª</option>
+                  <option>11ª</option>
+                  <option>12ª</option>
+                  <option>13ª</option>
                 </select>
               </div>
               <div class="col-md-3">
@@ -251,7 +267,10 @@
                     <td>Maria João</td>
                     <td>32</td>
                     <td>
-                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#turmaModal" data-codigo="TUR-101" data-curso="Informática" data-ciclo="I Ciclo" data-prof="Maria João" data-num="32">Editar</button>
+                      <a href="turma-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
+                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
+                        data-bs-target="#turmaModal" data-codigo="TUR-101" data-curso="Informática" data-ciclo="I Ciclo"
+                        data-prof="Maria João" data-num="32">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
@@ -262,7 +281,10 @@
                     <td>Joaquim Silva</td>
                     <td>28</td>
                     <td>
-                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#turmaModal" data-codigo="TUR-202" data-curso="Física" data-ciclo="II Ciclo" data-prof="Joaquim Silva" data-num="28">Editar</button>
+                      <a href="turma-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
+                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
+                        data-bs-target="#turmaModal" data-codigo="TUR-202" data-curso="Física" data-ciclo="II Ciclo"
+                        data-prof="Joaquim Silva" data-num="28">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
@@ -283,27 +305,72 @@
               <form id="formTurma">
                 <div class="modal-body">
                   <input type="hidden" id="turmaId" value="">
-                  <div class="mb-3"><label class="form-label">Código</label><input id="turmaCodigo" class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Curso</label><input id="turmaCurso" class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Ciclo</label><select id="turmaCiclo" class="form-control form-select"><option>I Ciclo</option><option>II Ciclo</option></select></div>
-                  <div class="mb-3"><label class="form-label">Professor Titular</label><input id="turmaProf" class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Nº Alunos</label><input id="turmaNum" type="number" class="form-control"></div>
+                  <div class="mb-3">
+                    <label class="form-label">Código</label>
+                    <input id="turmaCodigo" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Curso</label>
+                    <select id="turmaCurso" class="form-select form-control">
+                      <option value="">Selecione um curso</option>
+                      <option value="Informática">Informática</option>
+                      <option value="Administração">Administração</option>
+                      <option value="Eletrónica">Eletrónica</option>
+                      <option value="Contabilidade">Contabilidade</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Classe</label>
+                    <select id="turmaCiclo" class="form-select form-control">
+                      <option value="">Selecione uma classe</option>
+                      <option value="10ª Classe">10ª Classe</option>
+                      <option value="11ª Classe">11ª Classe</option>
+                      <option value="12ª Classe">12ª Classe</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Professor Titular</label>
+                    <select id="turmaProf" class="form-select form-control">
+                      <option value="">Selecione um professor</option>
+                      <option value="Maria João dos Santos">Maria João dos Santos</option>
+                      <option value="Carlos Mendes da Silva">Carlos Mendes da Silva</option>
+                      <option value="Joaquim Silva">Joaquim Silva</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Turno</label>
+                    <select id="turmaTurno" class="form-select form-control">
+                      <option value="">Selecione um turno</option>
+                      <option value="Matutino">Matutino (Manhã)</option>
+                      <option value="Vespertino">Vespertino (Tarde)</option>
+                      <option value="Noturno">Noturno (Noite)</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Nº Alunos</label>
+                    <input id="turmaNum" type="number" class="form-control">
+                  </div>
                 </div>
-                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-primary">Guardar</button></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <footer class="main-footer"><p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p></footer>
+      <footer class="main-footer">
+        <p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p>
+      </footer>
     </main>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.addEventListener('click', function(e) {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('click', function (e) {
         const btn = e.target.closest('.btn-edit');
         if (!btn) return;
         const codigo = btn.getAttribute('data-codigo') || '';
@@ -326,7 +393,7 @@
         document.getElementById('formTurma').reset();
       });
 
-      document.getElementById('formTurma').addEventListener('submit', function(e) {
+      document.getElementById('formTurma').addEventListener('submit', function (e) {
         e.preventDefault();
         const data = {
           codigo: document.getElementById('turmaCodigo').value,
@@ -341,4 +408,5 @@
     });
   </script>
 </body>
+
 </html>

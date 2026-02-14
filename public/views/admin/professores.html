@@ -263,6 +263,7 @@
                     <td>+244 923 000 002</td>
                     <td>Matemática</td>
                     <td>
+                      <a href="professor-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#profModal" data-nome="Maria João" data-email="maria.joao@escola.med.ao" data-telefone="+244 923 000 002" data-disciplina="Matemática">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
@@ -273,6 +274,7 @@
                     <td>+244 923 000 003</td>
                     <td>Física</td>
                     <td>
+                      <a href="professor-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#profModal" data-nome="Joaquim Silva" data-email="joaquim.silva@escola.med.ao" data-telefone="+244 923 000 003" data-disciplina="Física">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
@@ -285,7 +287,7 @@
 
         <!-- Modal: Adicionar / Editar Professor -->
         <div class="modal fade" id="profModal" tabindex="-1">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="profModalTitle">Novo Professor</h5>
@@ -295,7 +297,7 @@
                 <div class="modal-body">
                   <input type="hidden" id="profId" value="">
                   <div class="mb-3">
-                    <label class="form-label">Nome</label>
+                    <label class="form-label">Nome Completo</label>
                     <input type="text" id="profNome" class="form-control" required>
                   </div>
                   <div class="mb-3">
@@ -307,8 +309,49 @@
                     <input type="tel" id="profTelefone" class="form-control">
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Disciplina</label>
-                    <input type="text" id="profDisciplina" class="form-control">
+                    <label class="form-label">Disciplinas que Leciona</label>
+                    <div class="border rounded p-3" style="max-height: 200px; overflow-y: auto;">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_mat" value="Matemática" name="disciplinas">
+                        <label class="form-check-label" for="disc_mat">Matemática</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_port" value="Português" name="disciplinas">
+                        <label class="form-check-label" for="disc_port">Português</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_ing" value="Inglês" name="disciplinas">
+                        <label class="form-check-label" for="disc_ing">Inglês</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_fis" value="Física" name="disciplinas">
+                        <label class="form-check-label" for="disc_fis">Física</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_qui" value="Química" name="disciplinas">
+                        <label class="form-check-label" for="disc_qui">Química</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_bio" value="Biologia" name="disciplinas">
+                        <label class="form-check-label" for="disc_bio">Biologia</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_hist" value="História" name="disciplinas">
+                        <label class="form-check-label" for="disc_hist">História</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_geo" value="Geografia" name="disciplinas">
+                        <label class="form-check-label" for="disc_geo">Geografia</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_info" value="Informática" name="disciplinas">
+                        <label class="form-check-label" for="disc_info">Informática</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="disc_ed" value="Educação Física" name="disciplinas">
+                        <label class="form-check-label" for="disc_ed">Educação Física</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="modal-footer">

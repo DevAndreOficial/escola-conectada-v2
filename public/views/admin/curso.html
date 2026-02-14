@@ -288,7 +288,7 @@
 
         <!-- Modal: Adicionar / Editar Curso -->
         <div class="modal fade" id="cursoModal" tabindex="-1">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="cursoModalTitle">Novo Curso</h5>
@@ -297,21 +297,51 @@
               <form id="formCurso">
                 <div class="modal-body">
                   <input type="hidden" id="cursoId" value="">
-                  <div class="mb-3"><label class="form-label">Código</label><input id="cursoCodigo"
-                      class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Nome do Curso</label><input id="cursoNome"
-                      class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Ciclo</label><select id="cursoCiclo"
-                      class="form-control form-select">
-                      <option>I Ciclo</option>
-                      <option>II Ciclo</option>
-                    </select></div>
-                  <div class="mb-3"><label class="form-label">Duração</label><input id="cursoDuracao"
-                      class="form-control"></div>
+                  <div class="mb-3">
+                    <label class="form-label">Código</label>
+                    <input id="cursoCodigo" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Nome do Curso</label>
+                    <input id="cursoNome" class="form-control">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Área de Formação</label>
+                        <select id="cursoArea" class="form-select form-control">
+                          <option value="">Selecione uma área</option>
+                          <option value="Tecnologias">Tecnologias</option>
+                          <option value="Ciências">Ciências</option>
+                          <option value="Humanas">Humanas</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label class="form-label">Classe/Ciclo</label>
+                        <select id="cursoCiclo" class="form-select form-control">
+                          <option value="">Selecione</option>
+                          <option value="10ª Classe">10ª Classe</option>
+                          <option value="11ª Classe">11ª Classe</option>
+                          <option value="12ª Classe">12ª Classe</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Duração</label>
+                    <input id="cursoDuracao" class="form-control" placeholder="Ex: 3 anos">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Descrição</label>
+                    <textarea id="cursoDesc" class="form-control" rows="3" placeholder="Descrição do curso..."></textarea>
+                  </div>
                 </div>
-                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
-                    data-bs-dismiss="modal">Cancelar</button><button type="submit"
-                    class="btn btn-primary">Guardar</button></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
               </form>
             </div>
           </div>
