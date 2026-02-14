@@ -254,6 +254,8 @@
                     <th>Código</th>
                     <th>Curso</th>
                     <th>Classe</th>
+                    <th>Sala</th>
+                    <th>Ano Letivo</th>
                     <th>Diretor de Turma</th>
                     <th>Nº Alunos</th>
                     <th>Ações</th>
@@ -264,13 +266,15 @@
                     <td>TUR-101</td>
                     <td>Informática</td>
                     <td>10ª</td>
+                    <td>A101</td>
+                    <td>2025/2026</td>
                     <td>Maria João</td>
                     <td>32</td>
                     <td>
                       <a href="turma-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#turmaModal" data-codigo="TUR-101" data-curso="Informática" data-ciclo="10ª"
-                        data-prof="Maria João" data-num="32">Editar</button>
+                        data-sala="A101" data-ano="2025/2026" data-prof="Maria João" data-num="32">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
@@ -278,13 +282,15 @@
                     <td>TUR-202</td>
                     <td>Física</td>
                     <td>11ª</td>
+                    <td>B202</td>
+                    <td>2024/2025</td>
                     <td>Joaquim Silva</td>
                     <td>28</td>
                     <td>
                       <a href="turma-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#turmaModal" data-codigo="TUR-202" data-curso="Física" data-ciclo="11ª"
-                        data-prof="Joaquim Silva" data-num="28">Editar</button>
+                        data-sala="B202" data-ano="2024/2025" data-prof="Joaquim Silva" data-num="28">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
@@ -347,6 +353,19 @@
                     </select>
                   </div>
                   <div class="mb-3">
+                    <label class="form-label">Sala</label>
+                    <input id="turmaSala" type="text" class="form-control" placeholder="Ex: A101">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Ano Letivo</label>
+                    <select id="turmaAno" class="form-select form-control">
+                      <option value="">Selecione o ano letivo</option>
+                      <option value="2023/2024">2023/2024</option>
+                      <option value="2024/2025">2024/2025</option>
+                      <option value="2025/2026">2025/2026</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
                     <label class="form-label">Nº Alunos</label>
                     <input id="turmaNum" type="number" class="form-control">
                   </div>
@@ -376,6 +395,8 @@
         const codigo = btn.getAttribute('data-codigo') || '';
         const curso = btn.getAttribute('data-curso') || '';
         const ciclo = btn.getAttribute('data-ciclo') || '';
+        const sala = btn.getAttribute('data-sala') || '';
+        const ano = btn.getAttribute('data-ano') || '';
         const prof = btn.getAttribute('data-prof') || '';
         const num = btn.getAttribute('data-num') || '';
 
@@ -383,6 +404,8 @@
         document.getElementById('turmaCodigo').value = codigo;
         document.getElementById('turmaCurso').value = curso;
         document.getElementById('turmaCiclo').value = ciclo;
+        document.getElementById('turmaSala').value = sala;
+        document.getElementById('turmaAno').value = ano;
         document.getElementById('turmaProf').value = prof;
         document.getElementById('turmaNum').value = num;
       });
