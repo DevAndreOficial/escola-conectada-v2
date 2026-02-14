@@ -223,12 +223,11 @@
         <div class="card mb-3">
           <div class="card-body">
             <div class="row g-3 align-items-end">
-              <div class="col-md-5">
-                <label class="form-label">Pesquisar</label>
-                <input id="filterTurmaSearch" type="text" class="form-control"
-                  placeholder="Código, curso, professor...">
-              </div>
               <div class="col-md-4">
+                <label class="form-label">Pesquisar</label>
+                <input id="filterTurmaSearch" type="text" class="form-control" placeholder="Código, curso, professor...">
+              </div>
+              <div class="col-md-2">
                 <label class="form-label">Classe</label>
                 <select id="filterTurmaCiclo" class="form-control form-select">
                   <option value="">Todos</option>
@@ -238,7 +237,20 @@
                   <option>13ª</option>
                 </select>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
+                <label class="form-label">Sala</label>
+                <input id="filterTurmaSala" type="text" class="form-control" placeholder="Ex: A101">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Ano Letivo</label>
+                <select id="filterTurmaAno" class="form-control form-select">
+                  <option value="">Todos</option>
+                  <option value="2023/2024">2023/2024</option>
+                  <option value="2024/2025">2024/2025</option>
+                  <option value="2025/2026">2025/2026</option>
+                </select>
+              </div>
+              <div class="col-md-2">
                 <button id="btnFilterTurma" class="btn btn-outline-primary w-100">Filtrar</button>
               </div>
             </div>
@@ -422,11 +434,39 @@
           codigo: document.getElementById('turmaCodigo').value,
           curso: document.getElementById('turmaCurso').value,
           ciclo: document.getElementById('turmaCiclo').value,
+          sala: document.getElementById('turmaSala').value,
+          ano: document.getElementById('turmaAno').value,
           professor: document.getElementById('turmaProf').value,
           numero: document.getElementById('turmaNum').value
         };
         console.log('Turma form submit (stub):', data);
         bootstrap.Modal.getInstance(turmaModalEl).hide();
+      });
+
+      // Filter turmas by search, classe, sala and ano letivo
+      document.getElementById('btnFilterTurma').addEventListener('click', function() {
+        const q = document.getElementById('filterTurmaSearch').value.trim().toLowerCase();
+        const classe = document.getElementById('filterTurmaCiclo').value;
+        const sala = document.getElementById('filterTurmaSala').value.trim().toLowerCase();
+        const ano = document.getElementById('filterTurmaAno').value;
+
+        document.querySelectorAll('table tbody tr').forEach(tr => {
+          const cols = tr.children;
+          const codigo = (cols[0]?.textContent||'').toLowerCase();
+          const curso = (cols[1]?.textContent||'').toLowerCase();
+          const classeTd = (cols[2]?.textContent||'').trim();
+          const salaTd = (cols[3]?.textContent||'').toLowerCase();
+          const anoTd = (cols[4]?.textContent||'').trim();
+          const prof = (cols[5]?.textContent||'').toLowerCase();
+
+          let matches = true;
+          if (q) matches = matches && (codigo.includes(q) || curso.includes(q) || prof.includes(q));
+          if (classe) matches = matches && (classeTd === classe);
+          if (sala) matches = matches && salaTd.includes(sala);
+          if (ano) matches = matches && (anoTd === ano);
+
+          tr.style.display = matches ? '' : 'none';
+        });
       });
     });
   </script>
