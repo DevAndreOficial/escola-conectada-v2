@@ -1,126 +1,551 @@
 <!DOCTYPE html>
 <html lang="pt-AO">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Curso - Administração | SGE MED Angola</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/global.css">
-  <link rel="stylesheet" href="../../css/sidebar.css">
-  <style>
-    .detail-header { background: #f8f9fa; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid #1a4480; border-radius:4px }
-    .detail-title { font-size:1.3rem; font-weight:700; color:#1a4480; margin:0 0 .3rem 0 }
-    .detail-subtitle { font-size:.9rem; color:#6c757d }
-    .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:2rem }
-    .info-item { background:white; border:1px solid #dee2e6; border-radius:4px; padding:1rem }
-    .info-label { font-size:.75rem; font-weight:600; color:#6c757d; text-transform:uppercase; margin-bottom:.4rem; display:block }
-    .info-value { font-size:.95rem; font-weight:600; color:#1a4480 }
-    .section-header { font-size:1.05rem; font-weight:700; color:#1a4480; margin-top:1.5rem; margin-bottom:1rem; padding-bottom:.7rem; border-bottom:2px solid #1a4480 }
-    .action-buttons { display:flex; gap:1rem; margin-top:2rem }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Curso - Administração | SGE MED Angola</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <style>
+        .detail-header {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #1a4480;
+            border-radius: 4px
+        }
 
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      .detail-header { padding: 1rem }
-      .detail-title { font-size: 1.1rem }
-      .detail-subtitle { font-size: 0.8rem }
-      .info-item { padding: 0.8rem }
-      .action-buttons { flex-direction: column; gap: 0.6rem }
-      .action-buttons .btn { width: 100% }
-      .table-custom thead th, .table-custom td, .table.table-hover td { padding: 0.45rem }
-      .page-content { padding: 0.5rem }
-      .header-left h1.header-title, .header-left { display: flex; align-items: center; gap: 0.5rem }
-      .btn-back { display: inline-block; margin-bottom: 0.8rem }
-    }
-  </style>
+        .detail-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a4480;
+            margin: 0 0 .3rem 0
+        }
+
+        .detail-subtitle {
+            font-size: .9rem;
+            color: #6c757d
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem
+        }
+
+        .info-item {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 1rem
+        }
+
+        .info-label {
+            font-size: .75rem;
+            font-weight: 600;
+            color: #6c757d;
+            text-transform: uppercase;
+            margin-bottom: .4rem;
+            display: block
+        }
+
+        .info-value {
+            font-size: .95rem;
+            font-weight: 600;
+            color: #1a4480
+        }
+
+        .section-header {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a4480;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: .7rem;
+            border-bottom: 2px solid #1a4480
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .detail-header {
+                padding: 1rem
+            }
+
+            .detail-title {
+                font-size: 1.1rem
+            }
+
+            .detail-subtitle {
+                font-size: 0.8rem
+            }
+
+            .info-item {
+                padding: 0.8rem
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 0.6rem
+            }
+
+            .action-buttons .btn {
+                width: 100%
+            }
+
+            .table-custom thead th,
+            .table-custom td,
+            .table.table-hover td {
+                padding: 0.45rem
+            }
+
+            .page-content {
+                padding: 0.5rem
+            }
+
+            .header-left h1.header-title,
+            .header-left {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem
+            }
+
+            .btn-back {
+                display: inline-block;
+                margin-bottom: 0.8rem
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="main-wrapper">
-    <div class="sidebar-overlay"></div>
-    <aside class="sidebar">
-      <!-- sidebar content reused from other pages -->
-      <button class="sidebar-close">×</button>
-      <div class="sidebar-brand"><div class="sidebar-logo">SGE</div><div class="sidebar-brand-text"><span class="sidebar-brand-title">Escola Conectada</span><span class="sidebar-brand-subtitle">MED Angola</span></div></div>
-      <nav class="sidebar-nav"></nav>
-    </aside>
+    <div class="main-wrapper">
+        <div class="sidebar-overlay"></div>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <button class="sidebar-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
 
-    <main class="main-content">
-      <header class="main-header">
-        <div class="header-left"><button class="mobile-toggle">☰</button><h1 class="header-title">Detalhes do Curso</h1></div>
-        <div class="header-right"><div class="header-user"><div class="header-user-avatar">AD</div><div class="header-user-info"><span class="header-user-name">Administrador</span><span class="header-user-role">Administração</span></div></div></div>
-      </header>
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">SGE</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Escola Conectada</span>
+                    <span class="sidebar-brand-subtitle">MED Angola</span>
+                </div>
+            </div>
 
-      <div class="page-content">
-        <a href="curso.html" class="btn-back btn btn-outline-secondary mb-3">← Voltar</a>
+            <nav class="sidebar-nav">
+                <!-- Principal -->
+                <div class="nav-group">
+                    <div class="nav-group-title">Principal</div>
+                    <div class="nav-item">
+                        <a href="dashboard.html" class="nav-link active" data-title="Dashboard">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7" />
+                                    <rect x="14" y="3" width="7" height="7" />
+                                    <rect x="14" y="14" width="7" height="7" />
+                                    <rect x="3" y="14" width="7" height="7" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Dashboard</span>
+                        </a>
+                    </div>
+                </div>
 
-        <div class="detail-header">
-          <h1 class="detail-title">Informática</h1>
-          <p class="detail-subtitle">Código: CUR-001 • Classe: 10ª • Duração: 3 anos</p>
-        </div>
+                <!-- Comunicação -->
+                <div class="nav-group">
+                    <div class="nav-group-title">Comunicação</div>
+                    <div class="nav-item">
+                        <a href="avisos.html" class="nav-link" data-title="Avisos">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="m3 11 18-5v12L3 13v-2z" />
+                                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Avisos</span>
+                            <span class="nav-badge">2</span>
+                        </a>
+                    </div>
+                </div>
 
-        <h2 class="section-header">Informações do Curso</h2>
-        <div class="info-grid">
-          <div class="info-item"><span class="info-label">Código</span><div class="info-value">CUR-001</div></div>
-          <div class="info-item"><span class="info-label">Área de Formação</span><div class="info-value">Tecnologias</div></div>
-          <div class="info-item"><span class="info-label">Classe</span><div class="info-value">10ª</div></div>
-          <div class="info-item"><span class="info-label">Duração</span><div class="info-value">3 anos</div></div>
-          <div class="info-item"><span class="info-label">Ano Letivo</span><div class="info-value">2025/2026</div></div>
-        </div>
+                <!-- Gestão -->
+                <div class="nav-group">
+                    <div class="nav-group-title">Gestão</div>
+                    <div class="nav-item">
+                        <a href="professores.html" class="nav-link" data-title="Professores">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Professores</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="turmas.html" class="nav-link" data-title="Turmas">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7" />
+                                    <rect x="14" y="3" width="7" height="7" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Turmas</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="disciplinas.html" class="nav-link" data-title="Disciplinas">
+                            <span class="nav-link-icon">
 
-        <h2 class="section-header">Descrição</h2>
-        <div class="info-item mb-3"><div class="info-value">Curso de Informática focado em desenvolvimento de software, redes e multimédia. Abrange programação, bases de dados, sistemas operativos e práticas laboratoriais.</div></div>
+                                <!-- Ícone Livro / Disciplinas -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
 
-        <h2 class="section-header">Disciplina / Módulos</h2>
-        <div class="table-responsive">
-          <table class="table table-custom">
-            <thead><tr><th>Módulo</th><th>Horas/Semana</th></tr></thead>
-            <tbody>
-              <tr><td>Programação</td><td>5</td></tr>
-              <tr><td>Bases de Dados</td><td>3</td></tr>
-              <tr><td>Sistemas Operativos</td><td>2</td></tr>
-              <tr><td>Redes</td><td>2</td></tr>
-            </tbody>
-          </table>
-        </div>
+                                    <path d="M2 4h7a4 4 0 0 1 4 4v12a4 4 0 0 0-4-4H2z" />
+                                    <path d="M22 4h-7a4 4 0 0 0-4 4v12a4 4 0 0 1 4-4h7z" />
 
-        <h2 class="section-header">Turmas Associadas</h2>
-        <div class="table-responsive">
-          <table class="table table-hover align-middle">
-            <thead><tr><th>Código</th><th>Classe</th><th>Sala</th><th>Ano Letivo</th><th>Prof. Titular</th><th>Ações</th></tr></thead>
-            <tbody>
-              <tr>
-                <td>TUR-101</td>
-                <td>10ª</td>
-                <td>A101</td>
-                <td>2025/2026</td>
-                <td>Maria João</td>
-                <td><a href="turma-detalhes.html" class="btn btn-sm btn-outline-info">Ver</a></td>
-              </tr>
-              <tr>
-                <td>TUR-303</td>
-                <td>10ª</td>
-                <td>C303</td>
-                <td>2025/2026</td>
-                <td>Carlos Mendes</td>
-                <td><a href="turma-detalhes.html" class="btn btn-sm btn-outline-info">Ver</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                                </svg>
 
-        <div class="action-buttons">
-          <a href="curso.html" class="btn btn-primary">Editar Curso</a>
-          <button class="btn btn-outline-danger">Eliminar Curso</button>
-        </div>
+                            </span>
+                            <span class="nav-link-text">Disciplinas</span>
+                        </a>
+                    </div>
 
-      </div>
+                    <div class="nav-item">
+                        <a href="curso.html" class="nav-link" data-title="Cursos">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2l9 4.9v9.8L12 22 3 16.7V6.9L12 2z" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Cursos</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="alunos.html" class="nav-link" data-title="Alunos">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Alunos</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="encarregados.html" class="nav-link" data-title="Encarregados">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Encarregados</span>
+                        </a>
+                    </div>
+                </div>
 
-      <footer class="main-footer"><p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p></footer>
-    </main>
-  </div>
+                <!-- Conta -->
+                <div class="nav-group">
+                    <div class="nav-group-title">Conta</div>
+                    <div class="nav-item">
+                        <a href="perfil.html" class="nav-link" data-title="Meu Perfil">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Meu Perfil</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="../../../index.html" class="nav-link" data-title="Sair">
+                            <span class="nav-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                    <polyline points="16 17 21 12 16 7" />
+                                    <line x1="21" y1="12" x2="9" y2="12" />
+                                </svg>
+                            </span>
+                            <span class="nav-link-text">Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../js/global.js"></script>
-  <script src="../../js/sidebar.js"></script>
+            <div class="sidebar-footer">
+                <button class="sidebar-toggle">
+                    <span class="sidebar-toggle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </span>
+                    <span class="sidebar-toggle-text">Recolher menu</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left"><button class="mobile-toggle">☰</button>
+                    <h1 class="header-title">Detalhes do Curso</h1>
+                </div>
+                <div class="header-right">
+                    <div class="header-user">
+                        <div class="header-user-avatar">AD</div>
+                        <div class="header-user-info"><span class="header-user-name">Administrador</span><span
+                                class="header-user-role">Administração</span></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <a href="curso.html" class="btn-back btn btn-outline-secondary mb-3">← Voltar</a>
+
+                <div class="detail-header">
+                    <h1 class="detail-title">Informática</h1>
+                    <p class="detail-subtitle">Código: CUR-001 • Classe: 10ª • Duração: 3 anos</p>
+                </div>
+
+                <h2 class="section-header">Informações do Curso</h2>
+                <div class="info-grid">
+                    <div class="info-item"><span class="info-label">Código</span>
+                        <div class="info-value">CUR-001</div>
+                    </div>
+                    <div class="info-item"><span class="info-label">Área de Formação</span>
+                        <div class="info-value">Tecnologias</div>
+                    </div>
+                    <div class="info-item"><span class="info-label">Classe</span>
+                        <div class="info-value">10ª</div>
+                    </div>
+                    <div class="info-item"><span class="info-label">Duração</span>
+                        <div class="info-value">3 anos</div>
+                    </div>
+                    <div class="info-item"><span class="info-label">Ano Letivo</span>
+                        <div class="info-value">2025/2026</div>
+                    </div>
+                </div>
+
+                <h2 class="section-header">Descrição</h2>
+                <div class="info-item mb-3">
+                    <div class="info-value">Curso de Informática focado em desenvolvimento de software, redes e
+                        multimédia. Abrange programação, bases de dados, sistemas operativos e práticas laboratoriais.
+                    </div>
+                </div>
+
+                <h2 class="section-header">Disciplina / Módulos</h2>
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th>Módulo</th>
+                                <th>Horas/Semana</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Programação</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Bases de Dados</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Sistemas Operativos</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Redes</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="section-header">Turmas Associadas</h2>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Classe</th>
+                                <th>Sala</th>
+                                <th>Ano Letivo</th>
+                                <th>Prof. Titular</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TUR-101</td>
+                                <td>10ª</td>
+                                <td>A101</td>
+                                <td>2025/2026</td>
+                                <td>Maria João</td>
+                                <td><a href="turma-detalhes.html" class="btn btn-sm btn-outline-info">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>TUR-303</td>
+                                <td>10ª</td>
+                                <td>C303</td>
+                                <td>2025/2026</td>
+                                <td>Carlos Mendes</td>
+                                <td><a href="turma-detalhes.html" class="btn btn-sm btn-outline-info">Ver</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                                <div class="action-buttons">
+                                        <button id="btnEditCurso" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cursoModal">Editar Curso</button>
+                                        <button class="btn btn-outline-danger">Eliminar Curso</button>
+                                </div>
+
+                                <!-- Modal: Editar Curso (reutiliza estrutura do curso list) -->
+                                <div class="modal fade" id="cursoModal" tabindex="-1">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="cursoModalTitle">Editar Curso</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <form id="formCurso">
+                                                <div class="modal-body">
+                                                    <input type="hidden" id="cursoId" value="">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Código</label>
+                                                        <input id="cursoCodigo" class="form-control">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Nome do Curso</label>
+                                                        <input id="cursoNome" class="form-control">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Área de Formação</label>
+                                                                <select id="cursoArea" class="form-select form-control">
+                                                                    <option value="">Selecione uma área</option>
+                                                                    <option value="Tecnologias">Tecnologias</option>
+                                                                    <option value="Ciências">Ciências</option>
+                                                                    <option value="Humanas">Humanas</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Classe</label>
+                                                                <select id="cursoCiclo" class="form-select form-control">
+                                                                    <option value="">Selecione</option>
+                                                                    <option value="10ª">10ª</option>
+                                                                    <option value="11ª">11ª</option>
+                                                                    <option value="12ª">12ª</option>
+                                                                    <option value="13ª">13ª</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Duração</label>
+                                                        <input id="cursoDuracao" class="form-control" placeholder="Ex: 3 anos">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Descrição</label>
+                                                        <textarea id="cursoDesc" class="form-control" rows="3" placeholder="Descrição do curso..."></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+            </div>
+
+            <footer class="main-footer">
+                <p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/global.js"></script>
+    <script src="../../js/sidebar.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const cursoModalEl = document.getElementById('cursoModal');
+
+                // When modal opens, populate fields from the details page
+                cursoModalEl.addEventListener('show.bs.modal', function () {
+                    document.getElementById('cursoModalTitle').textContent = 'Editar Curso';
+                    document.getElementById('cursoCodigo').value = document.querySelector('.info-item .info-value')?.textContent.trim() || document.querySelector('.detail-subtitle')?.textContent.split('•')[0].replace('Código:','').trim() || '';
+                    document.getElementById('cursoNome').value = document.querySelector('.detail-title')?.textContent.trim() || '';
+                    // area -- try to read from info-grid
+                    const area = Array.from(document.querySelectorAll('.info-item')).find(i => i.querySelector('.info-label')?.textContent.trim() === 'Área de Formação')?.querySelector('.info-value')?.textContent.trim() || '';
+                    document.getElementById('cursoArea').value = area;
+                    const classe = Array.from(document.querySelectorAll('.info-item')).find(i => i.querySelector('.info-label')?.textContent.trim() === 'Classe')?.querySelector('.info-value')?.textContent.trim() || '';
+                    document.getElementById('cursoCiclo').value = classe;
+                    const dur = Array.from(document.querySelectorAll('.info-item')).find(i => i.querySelector('.info-label')?.textContent.trim() === 'Duração')?.querySelector('.info-value')?.textContent.trim() || '';
+                    document.getElementById('cursoDuracao').value = dur;
+                    const desc = document.querySelector('.section-header + .info-item .info-value')?.textContent.trim() || '';
+                    document.getElementById('cursoDesc').value = desc;
+                });
+
+                document.getElementById('formCurso').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const data = {
+                        codigo: document.getElementById('cursoCodigo').value,
+                        nome: document.getElementById('cursoNome').value,
+                        ciclo: document.getElementById('cursoCiclo').value,
+                        duracao: document.getElementById('cursoDuracao').value,
+                        descricao: document.getElementById('cursoDesc').value
+                    };
+                    console.log('Salvar curso (stub):', data);
+                    bootstrap.Modal.getInstance(cursoModalEl).hide();
+                });
+            });
+        </script>
 </body>
+
 </html>
