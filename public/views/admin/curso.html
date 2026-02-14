@@ -228,11 +228,13 @@
                 <input id="filterCursoSearch" type="text" class="form-control" placeholder="Código ou nome do curso">
               </div>
               <div class="col-md-4">
-                <label class="form-label">Ciclo</label>
+                <label class="form-label">Classe</label>
                 <select id="filterCursoCiclo" class="form-control form-select">
                   <option value="">Todos</option>
-                  <option>I Ciclo</option>
-                  <option>II Ciclo</option>
+                  <option>10ª</option>
+                  <option>11ª</option>
+                  <option>12ª</option>
+                  <option>13ª</option>
                 </select>
               </div>
               <div class="col-md-2">
@@ -250,7 +252,7 @@
                   <tr>
                     <th>Código</th>
                     <th>Nome do Curso</th>
-                    <th>Ciclo</th>
+                    <th>Classe</th>
                     <th>Duração</th>
                     <th>Ações</th>
                   </tr>
@@ -259,11 +261,12 @@
                   <tr>
                     <td>CUR-001</td>
                     <td>Informática</td>
-                    <td>I Ciclo</td>
+                    <td>10ª</td>
                     <td>3 anos</td>
                     <td>
+                      <a href="curso-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
-                        data-bs-target="#cursoModal" data-codigo="CUR-001" data-nome="Informática" data-ciclo="I Ciclo"
+                        data-bs-target="#cursoModal" data-codigo="CUR-001" data-nome="Informática" data-ciclo="10ª"
                         data-duracao="3 anos">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
@@ -271,12 +274,13 @@
                   <tr>
                     <td>CUR-002</td>
                     <td>Física Aplicada</td>
-                    <td>II Ciclo</td>
+                    <td>12ª</td>
                     <td>2 anos</td>
                     <td>
+                      <a href="curso-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#cursoModal" data-codigo="CUR-002" data-nome="Física Aplicada"
-                        data-ciclo="II Ciclo" data-duracao="2 anos">Editar</button>
+                        data-ciclo="12ª" data-duracao="2 anos">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
@@ -319,12 +323,13 @@
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3">
-                        <label class="form-label">Classe/Ciclo</label>
+                        <label class="form-label">Classe</label>
                         <select id="cursoCiclo" class="form-select form-control">
                           <option value="">Selecione</option>
-                          <option value="10ª Classe">10ª Classe</option>
-                          <option value="11ª Classe">11ª Classe</option>
-                          <option value="12ª Classe">12ª Classe</option>
+                          <option value="10ª">10ª</option>
+                          <option value="11ª">11ª</option>
+                          <option value="12ª">12ª</option>
+                          <option value="13ª">13ª</option>
                         </select>
                       </div>
                     </div>
