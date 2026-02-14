@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cursos - Administração | SGE MED Angola</title>
+  <title>Disciplinas - Administração | SGE MED Angola</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/global.css">
@@ -199,7 +199,7 @@
     <main class="main-content">
       <header class="main-header">
         <div class="header-left"><button class="mobile-toggle">☰</button>
-          <h1 class="header-title">Cursos</h1>
+          <h1 class="header-title">Turmas</h1>
         </div>
         <div class="header-right">
           <div class="header-user">
@@ -213,30 +213,33 @@
       <div class="page-content">
         <div class="page-header d-flex justify-content-between align-items-center">
           <div>
-            <h2 class="page-title">Gestão de Cursos</h2>
-            <p class="page-subtitle">Cursos e descrições</p>
+            <h2 class="page-title">Gestão de Disciplinas</h2>
+            <p class="page-subtitle">Disciplinas e respetivos detalhes</p>
           </div>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cursoModal">Novo Curso</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#turmaModal">Nova Disciplina</button>
         </div>
 
         <!-- Filters -->
         <div class="card mb-3">
           <div class="card-body">
             <div class="row g-3 align-items-end">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <label class="form-label">Pesquisar</label>
-                <input id="filterCursoSearch" type="text" class="form-control" placeholder="Código ou nome do curso">
+                <input id="filterTurmaSearch" type="text" class="form-control"
+                  placeholder="Código, disciplina, curso...">
               </div>
               <div class="col-md-4">
-                <label class="form-label">Ciclo</label>
-                <select id="filterCursoCiclo" class="form-control form-select">
+                <label class="form-label">Classe</label>
+                <select id="filterTurmaCiclo" class="form-control form-select">
                   <option value="">Todos</option>
-                  <option>I Ciclo</option>
-                  <option>II Ciclo</option>
+                  <option>10ª</option>
+                  <option>11ª</option>
+                  <option>12ª</option>
+                  <option>13ª</option>
                 </select>
               </div>
-              <div class="col-md-2">
-                <button id="btnFilterCurso" class="btn btn-outline-primary w-100">Filtrar</button>
+              <div class="col-md-3">
+                <button id="btnFilterTurma" class="btn btn-outline-primary w-100">Filtrar</button>
               </div>
             </div>
           </div>
@@ -249,64 +252,68 @@
                 <thead>
                   <tr>
                     <th>Código</th>
-                    <th>Nome do Curso</th>
-                    <th>Ciclo</th>
-                    <th>Duração</th>
+                    <th>Disciplina</th>
+                    <th>Professor Titular</th>
+                    <th>Curso</th>
                     <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>CUR-001</td>
-                    <td>Informática</td>
-                    <td>I Ciclo</td>
-                    <td>3 anos</td>
+                    <td>DISC-203</td>
+                    <td>Física</td>
+                    <td>Carlos Mendes</td>
+                    <td>Informática, Electrónica</td>
                     <td>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
-                        data-bs-target="#cursoModal" data-codigo="CUR-001" data-nome="Informática" data-ciclo="I Ciclo"
-                        data-duracao="3 anos">Editar</button>
+                        data-bs-target="#turmaModal" data-codigo="TUR-102" data-curso="Electrónica"
+                        data-ciclo="II Ciclo" data-prof="Carlos Mendes" data-num="28">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
+
                   <tr>
-                    <td>CUR-002</td>
-                    <td>Física Aplicada</td>
-                    <td>II Ciclo</td>
-                    <td>2 anos</td>
+                    <td>DISC-204</td>
+                    <td>Química</td>
+                    <td>Ana Paula</td>
+                    <td>Ciências Físicas e Biológicas</td>
                     <td>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
-                        data-bs-target="#cursoModal" data-codigo="CUR-002" data-nome="Física Aplicada"
-                        data-ciclo="II Ciclo" data-duracao="2 anos">Editar</button>
+                        data-bs-target="#turmaModal" data-codigo="TUR-103" data-curso="CFB" data-ciclo="II Ciclo"
+                        data-prof="Ana Paula" data-num="30">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
+
                 </tbody>
               </table>
             </div>
           </div>
         </div>
 
-        <!-- Modal: Adicionar / Editar Curso -->
-        <div class="modal fade" id="cursoModal" tabindex="-1">
+        <!-- Modal: Adicionar / Editar Turma -->
+        <div class="modal fade" id="turmaModal" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="cursoModalTitle">Novo Curso</h5>
+                <h5 class="modal-title" id="turmaModalTitle">Nova Turma</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
               </div>
-              <form id="formCurso">
+              <form id="formTurma">
                 <div class="modal-body">
-                  <input type="hidden" id="cursoId" value="">
-                  <div class="mb-3"><label class="form-label">Código</label><input id="cursoCodigo"
+                  <input type="hidden" id="turmaId" value="">
+                  <div class="mb-3"><label class="form-label">Código</label><input id="turmaCodigo"
                       class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Nome do Curso</label><input id="cursoNome"
-                      class="form-control"></div>
-                  <div class="mb-3"><label class="form-label">Ciclo</label><select id="cursoCiclo"
+                  <div class="mb-3"><label class="form-label">Curso</label><input id="turmaCurso" class="form-control">
+                  </div>
+                  <div class="mb-3"><label class="form-label">Ciclo</label><select id="turmaCiclo"
                       class="form-control form-select">
                       <option>I Ciclo</option>
                       <option>II Ciclo</option>
                     </select></div>
-                  <div class="mb-3"><label class="form-label">Duração</label><input id="cursoDuracao"
+                  <div class="mb-3"><label class="form-label">Professor Titular</label><input id="turmaProf"
+                      class="form-control"></div>
+                  <div class="mb-3"><label class="form-label">Nº Alunos</label><input id="turmaNum" type="number"
                       class="form-control"></div>
                 </div>
                 <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
@@ -331,33 +338,36 @@
         const btn = e.target.closest('.btn-edit');
         if (!btn) return;
         const codigo = btn.getAttribute('data-codigo') || '';
-        const nome = btn.getAttribute('data-nome') || '';
+        const curso = btn.getAttribute('data-curso') || '';
         const ciclo = btn.getAttribute('data-ciclo') || '';
-        const duracao = btn.getAttribute('data-duracao') || '';
+        const prof = btn.getAttribute('data-prof') || '';
+        const num = btn.getAttribute('data-num') || '';
 
-        document.getElementById('cursoModalTitle').textContent = 'Editar Curso';
-        document.getElementById('cursoCodigo').value = codigo;
-        document.getElementById('cursoNome').value = nome;
-        document.getElementById('cursoCiclo').value = ciclo;
-        document.getElementById('cursoDuracao').value = duracao;
+        document.getElementById('turmaModalTitle').textContent = 'Editar Turma';
+        document.getElementById('turmaCodigo').value = codigo;
+        document.getElementById('turmaCurso').value = curso;
+        document.getElementById('turmaCiclo').value = ciclo;
+        document.getElementById('turmaProf').value = prof;
+        document.getElementById('turmaNum').value = num;
       });
 
-      const cursoModalEl = document.getElementById('cursoModal');
-      cursoModalEl.addEventListener('hidden.bs.modal', function () {
-        document.getElementById('cursoModalTitle').textContent = 'Novo Curso';
-        document.getElementById('formCurso').reset();
+      const turmaModalEl = document.getElementById('turmaModal');
+      turmaModalEl.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('turmaModalTitle').textContent = 'Nova Turma';
+        document.getElementById('formTurma').reset();
       });
 
-      document.getElementById('formCurso').addEventListener('submit', function (e) {
+      document.getElementById('formTurma').addEventListener('submit', function (e) {
         e.preventDefault();
         const data = {
-          codigo: document.getElementById('cursoCodigo').value,
-          nome: document.getElementById('cursoNome').value,
-          ciclo: document.getElementById('cursoCiclo').value,
-          duracao: document.getElementById('cursoDuracao').value
+          codigo: document.getElementById('turmaCodigo').value,
+          curso: document.getElementById('turmaCurso').value,
+          ciclo: document.getElementById('turmaCiclo').value,
+          professor: document.getElementById('turmaProf').value,
+          numero: document.getElementById('turmaNum').value
         };
-        console.log('Curso form submit (stub):', data);
-        bootstrap.Modal.getInstance(cursoModalEl).hide();
+        console.log('Turma form submit (stub):', data);
+        bootstrap.Modal.getInstance(turmaModalEl).hide();
       });
     });
   </script>
