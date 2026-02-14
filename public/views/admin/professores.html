@@ -223,17 +223,26 @@
         <div class="card mb-3">
           <div class="card-body">
             <div class="row g-3 align-items-end">
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <label class="form-label">Pesquisar</label>
                 <input type="text" id="filterProfSearch" class="form-control" placeholder="Nome, email...">
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <label class="form-label">Disciplina</label>
                 <select id="filterProfDisc" class="form-control form-select">
                   <option value="">Todas</option>
                   <option>Matemática</option>
                   <option>Física</option>
                   <option>Biologia</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Turma</label>
+                <select id="filterProfTurma" class="form-control form-select">
+                  <option value="">Todas</option>
+                  <option value="1">Turma A1 — Manhã — A101</option>
+                  <option value="2">Turma B1 — Tarde — B202</option>
+                  <option value="3">Turma C1 — Noite — C303</option>
                 </select>
               </div>
               <div class="col-md-2">
@@ -257,25 +266,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr data-turmas="1,3">
                     <td>Maria João</td>
                     <td>maria.joao@escola.med.ao</td>
                     <td>+244 923 000 002</td>
                     <td>Matemática</td>
                     <td>
                       <a href="professor-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
-                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#profModal" data-nome="Maria João" data-email="maria.joao@escola.med.ao" data-telefone="+244 923 000 002" data-disciplina="Matemática">Editar</button>
+                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#profModal" data-nome="Maria João" data-email="maria.joao@escola.med.ao" data-telefone="+244 923 000 002" data-disciplinas="Matemática" data-turmas="1,3">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
-                  <tr>
+                  <tr data-turmas="2">
                     <td>Joaquim Silva</td>
                     <td>joaquim.silva@escola.med.ao</td>
                     <td>+244 923 000 003</td>
                     <td>Física</td>
                     <td>
                       <a href="professor-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
-                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#profModal" data-nome="Joaquim Silva" data-email="joaquim.silva@escola.med.ao" data-telefone="+244 923 000 003" data-disciplina="Física">Editar</button>
+                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#profModal" data-nome="Joaquim Silva" data-email="joaquim.silva@escola.med.ao" data-telefone="+244 923 000 003" data-disciplinas="Física" data-turmas="2">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
@@ -353,6 +362,24 @@
                       </div>
                     </div>
                   </div>
+                  <div class="mb-3">
+                    <label class="form-label">Turmas</label>
+                    <div class="border rounded p-3" style="max-height: 200px; overflow-y: auto;">
+                      <!-- Exemplos estáticos; idealmente carregar via API -->
+                      <div class="form-check">
+                        <input class="form-check-input turma-checkbox" type="checkbox" id="turma_1" value="1" name="turmas">
+                        <label class="form-check-label" for="turma_1">Turma A1 <small class="text-muted">• Turno: Manhã — Sala: A101</small></label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input turma-checkbox" type="checkbox" id="turma_2" value="2" name="turmas">
+                        <label class="form-check-label" for="turma_2">Turma B1 <small class="text-muted">• Turno: Tarde — Sala: B202</small></label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input turma-checkbox" type="checkbox" id="turma_3" value="3" name="turmas">
+                        <label class="form-check-label" for="turma_3">Turma C1 <small class="text-muted">• Turno: Noite — Sala: C303</small></label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -372,7 +399,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
-  <script>
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Open edit modal and populate
       document.addEventListener('click', function(e) {
@@ -381,13 +408,23 @@
         const nome = btn.getAttribute('data-nome') || '';
         const email = btn.getAttribute('data-email') || '';
         const telefone = btn.getAttribute('data-telefone') || '';
-        const disciplina = btn.getAttribute('data-disciplina') || '';
+        const disciplinas = (btn.getAttribute('data-disciplinas') || '').split(',').map(s=>s.trim()).filter(Boolean);
+        const turmas = (btn.getAttribute('data-turmas') || '').split(',').map(s=>s.trim()).filter(Boolean);
 
         document.getElementById('profModalTitle').textContent = 'Editar Professor';
         document.getElementById('profNome').value = nome;
         document.getElementById('profEmail').value = email;
         document.getElementById('profTelefone').value = telefone;
-        document.getElementById('profDisciplina').value = disciplina;
+
+        // set discipline checkboxes
+        document.querySelectorAll('input[name="disciplinas"]').forEach(cb => {
+          cb.checked = disciplinas.includes(cb.value);
+        });
+
+        // set turma checkboxes
+        document.querySelectorAll('input[name="turmas"]').forEach(cb => {
+          cb.checked = turmas.includes(cb.value);
+        });
       });
 
       // Reset modal when closed
@@ -400,16 +437,39 @@
       // Prevent default submit (user will hook to backend later)
       document.getElementById('formProfessor').addEventListener('submit', function(e) {
         e.preventDefault();
-        // collect data if needed
+        const disciplinas = Array.from(document.querySelectorAll('input[name="disciplinas"]:checked')).map(i=>i.value);
+        const turmas = Array.from(document.querySelectorAll('input[name="turmas"]:checked')).map(i=>i.value);
         const data = {
           nome: document.getElementById('profNome').value,
           email: document.getElementById('profEmail').value,
           telefone: document.getElementById('profTelefone').value,
-          disciplina: document.getElementById('profDisciplina').value
+          disciplinas: disciplinas,
+          turmas: turmas
         };
         console.log('Professor form submit (stub):', data);
         // close modal
         bootstrap.Modal.getInstance(profModalEl).hide();
+      });
+
+      // Filter professors by search, disciplina and turma
+      document.getElementById('btnFilterProf').addEventListener('click', function() {
+        const q = document.getElementById('filterProfSearch').value.trim().toLowerCase();
+        const disc = document.getElementById('filterProfDisc').value;
+        const turma = document.getElementById('filterProfTurma').value;
+
+        document.querySelectorAll('table tbody tr').forEach(tr => {
+          const name = (tr.children[0] && tr.children[0].textContent || '').toLowerCase();
+          const email = (tr.children[1] && tr.children[1].textContent || '').toLowerCase();
+          const disciplina = (tr.children[3] && tr.children[3].textContent || '').trim();
+          const turmasAttr = (tr.getAttribute('data-turmas') || '').split(',').map(s=>s.trim()).filter(Boolean);
+
+          let matches = true;
+          if (q) matches = matches && (name.includes(q) || email.includes(q) || disciplina.toLowerCase().includes(q));
+          if (disc) matches = matches && (disciplina === disc);
+          if (turma) matches = matches && turmasAttr.includes(turma);
+
+          tr.style.display = matches ? '' : 'none';
+        });
       });
     });
   </script>
