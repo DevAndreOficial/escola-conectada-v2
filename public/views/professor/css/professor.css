@@ -14,9 +14,12 @@
   background: var(--bg-white);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  padding: 1.25rem;
+  padding: 1rem;
   transition: all var(--transition-fast);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .turma-card:hover {
@@ -27,20 +30,78 @@
 .turma-card-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .turma-icon {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--border-radius);
   background: rgba(26, 68, 128, 0.1);
   color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
+
+.turma-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.turma-discipline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.turma-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+}
+
+.turma-stat {
+  text-align: center;
+  padding: 0.5rem;
+  background: var(--bg-light);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.turma-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.turma-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  line-height: 1;
+}
+
+.turma-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
 
 .turma-info h5 {
   margin: 0;
@@ -50,29 +111,6 @@
 
 .turma-info span {
   font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.turma-card-body {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.turma-stat {
-  text-align: center;
-}
-
-.turma-stat-value {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.turma-stat-label {
-  font-size: 0.6875rem;
-  text-transform: uppercase;
   color: var(--text-muted);
 }
 
