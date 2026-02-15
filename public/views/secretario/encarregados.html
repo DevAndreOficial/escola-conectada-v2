@@ -1,172 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-AO">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes da Turma - Administração | SGE MED Angola</title>
-  
-  <!-- Bootstrap 5 CSS -->
+  <title>Encarregados - Administração | SGE MED Angola</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Global CSS -->
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/sidebar.css">
-  
-  <style>
-    .detail-header {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-left: 4px solid #1a4480;
-      border-radius: 4px;
-    }
-    
-    .detail-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #1a4480;
-      margin: 0 0 0.3rem 0;
-    }
-    
-    .detail-subtitle {
-      font-size: 0.9rem;
-      color: #6c757d;
-    }
-    
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    
-    .info-item {
-      background: white;
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      padding: 1rem;
-    }
-    
-    .info-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #6c757d;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    
-    .info-value {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #1a4480;
-      word-break: break-word;
-    }
-    
-    .section-header {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #1a4480;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.7rem;
-      border-bottom: 2px solid #1a4480;
-    }
-    
-    .table-responsive-custom {
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      overflow-x: auto;
-    }
-    
-    .table-custom {
-      font-size: 0.9rem;
-      margin-bottom: 0;
-    }
-    
-    .table-custom thead {
-      background-color: #f8f9fa;
-    }
-    
-    .table-custom thead th {
-      color: #1a4480;
-      font-weight: 600;
-      padding: 0.7rem;
-      border-bottom: 2px solid #dee2e6;
-    }
-    
-    .table-custom td {
-      padding: 0.7rem;
-      border-bottom: 1px solid #dee2e6;
-    }
-    
-    .table-custom tbody tr:hover {
-      background-color: #f8f9fa;
-    }
-    
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.9rem;
-    }
-    
-    .action-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .action-buttons .btn {
-      padding: 0.7rem 1rem;
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-      .detail-header {
-        padding: 1rem;
-      }
-      
-      .detail-title {
-        font-size: 1.1rem;
-      }
-      
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-      }
-      
-      .info-item {
-        padding: 0.8rem;
-      }
-      
-      .section-header {
-        font-size: 0.95rem;
-        margin-top: 1rem;
-        margin-bottom: 0.8rem;
-      }
-      
-      .table-custom {
-        font-size: 0.8rem;
-      }
-      
-      .table-custom thead th,
-      .table-custom td {
-        padding: 0.5rem;
-      }
-      
-      .action-buttons {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
 </head>
+
 <body>
   <div class="main-wrapper">
     <div class="sidebar-overlay"></div>
@@ -354,148 +198,196 @@
 
     <main class="main-content">
       <header class="main-header">
-        <div class="header-left">
-          <button class="mobile-toggle">☰</button>
-          <h1 class="header-title">Detalhes da Turma</h1>
+        <div class="header-left"><button class="mobile-toggle">☰</button>
+          <h1 class="header-title">Encarregados</h1>
         </div>
         <div class="header-right">
-          <div class="header-user"><div class="header-user-avatar">AD</div><div class="header-user-info"><span class="header-user-name">Administrador</span><span class="header-user-role">Administração</span></div></div>
+          <div class="header-user">
+            <div class="header-user-avatar">AD</div>
+            <div class="header-user-info"><span class="header-user-name">Administrador</span><span
+                class="header-user-role">Administração</span></div>
+          </div>
         </div>
       </header>
 
       <div class="page-content">
-        <a href="turmas.html" class="btn-back btn btn-outline-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          Voltar
-        </a>
-
-        <!-- Header Section -->
-        <div class="detail-header">
-          <h1 class="detail-title">Turma 10ª A</h1>
-          <p class="detail-subtitle">Curso Informática • I Ciclo (Ativa)</p>
+        <div class="page-header d-flex justify-content-between align-items-center">
+          <div>
+            <h2 class="page-title">Gestão de Encarregados</h2>
+            <p class="page-subtitle">Adicionar e gerir encarregados e os seus educandos</p>
+          </div>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#encModal">Novo Encarregado</button>
         </div>
 
-        <!-- Informações da Turma -->
-        <h2 class="section-header">Informações da Turma</h2>
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="info-label">Código da Turma</span>
-            <div class="info-value">INFO-10AD</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Curso</span>
-            <div class="info-value">Informática</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Classe</span>
-            <div class="info-value">10ª</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Turno</span>
-            <div class="info-value">Matutino</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Sala de Aula</span>
-            <div class="info-value">Bloco A - Sala 105</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Data de Criação</span>
-            <div class="info-value">10 de Janeiro de 2025</div>
+        <!-- Filters -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row g-3 align-items-end">
+              <div class="col-md-5">
+                <label class="form-label">Pesquisar</label>
+                <input id="filterEncSearch" type="text" class="form-control" placeholder="Nome, contacto ou email">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Tem filho na turma</label>
+                <select id="filterEncTurma" class="form-control form-select">
+                  <option value="">Todos</option>
+                  <option>7ª - A</option>
+                  <option>10ª - A</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Min Filhos</label>
+                <select id="filterEncMinFilhos" class="form-control form-select">
+                  <option value="">Qualquer</option>
+                  <option value="1">1+</option>
+                  <option value="2">2+</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <button id="btnFilterEnc" class="btn btn-outline-primary w-100">Filtrar</button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Diretor de Turma -->
-        <h2 class="section-header">Diretor de Turma</h2>
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="info-label">Nome</span>
-            <div class="info-value">Maria João dos Santos</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Especialidade</span>
-            <div class="info-value">Matemática</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Email</span>
-            <div class="info-value">maria.joao@escola.med.ao</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Telefone</span>
-            <div class="info-value">+244 923 000 002</div>
+        <div class="card mt-3">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Contacto</th>
+                    <th>Email</th>
+                    <th>Educandos</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="listaEncarregados">
+                  <tr>
+                    <td>Maria José Santos</td>
+                    <td>+244 912 345 678</td>
+                    <td>maria.santos@email.ao</td>
+                    <td>Ana Maria Santos, Pedro João Santos</td>
+                    <td>
+                      <a href="encarregado-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
+                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit-enc" data-bs-toggle="modal"
+                        data-bs-target="#encModal" data-nome="Maria José Santos" data-contacto="+244 912 345 678"
+                        data-email="maria.santos@email.ao"
+                        data-filhos="Ana Maria Santos,Pedro João Santos">Editar</button>
+                      <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>António Silva</td>
+                    <td>+244 923 111 222</td>
+                    <td>antonio.silva@email.ao</td>
+                    <td>João Silva</td>
+                    <td>
+                      <a href="encarregado-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
+                      <button class="btn btn-sm btn-outline-secondary me-1 btn-edit-enc" data-bs-toggle="modal"
+                        data-bs-target="#encModal" data-nome="António Silva" data-contacto="+244 923 111 222"
+                        data-email="antonio.silva@email.ao" data-filhos="João Silva">Editar</button>
+                      <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
-        <!-- Alunos da Turma -->
-        <h2 class="section-header">Alunos Inscritos (32 alunos)</h2>
-        <div class="table-responsive-custom">
-          <table class="table table-custom align-middle">
-            <thead>
-              <tr>
-                <th>Nº</th>
-                <th>Nome</th>
-                <th>Nº Processo</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><strong>Ana Pereira Silva</strong></td>
-                <td>2026-001</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><strong>Bruno Mendes Costa</strong></td>
-                <td>2026-002</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><strong>Cátia Silva Santos</strong></td>
-                <td>2026-003</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><strong>Dário José Mateus</strong></td>
-                <td>2026-004</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><strong>Elisa Maria da Cruz</strong></td>
-                <td>2026-005</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td><strong>Fernando Nunes da Silva</strong></td>
-                <td>2026-006</td>
-                <td><span class="badge bg-warning">Suspenso</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-          <button class="btn btn-primary">Editar Turma</button>
-          <button class="btn btn-outline-secondary">Descarregar Pauta</button>
-          <button class="btn btn-outline-danger">Eliminar Turma</button>
+        <!-- Modal: Adicionar / Editar Encarregado -->
+        <div class="modal fade" id="encModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="encModalTitle">Novo Encarregado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <form id="formEncarregado">
+                <div class="modal-body">
+                  <input type="hidden" id="encId" value="">
+                  <div class="mb-3"><label class="form-label">Nome</label><input id="encNome" class="form-control">
+                  </div>
+                  <div class="mb-3"><label class="form-label">Contacto</label><input id="encContacto"
+                      class="form-control"></div>
+                  <div class="mb-3"><label class="form-label">Email</label><input id="encEmail" class="form-control">
+                  </div>
+                  <div class="mb-3"><label class="form-label">Educandos (nomes separados por vírgula)</label><input
+                      id="encFilhos" class="form-control" placeholder="Ana Pereira, João Silva"></div>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
+                    data-bs-dismiss="modal">Cancelar</button><button type="submit"
+                    class="btn btn-primary">Guardar</button></div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
 
-      <footer class="main-footer"><p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p></footer>
+      <footer class="main-footer">
+        <p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p>
+      </footer>
     </main>
   </div>
-
-  <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Edit button population
+      document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.btn-edit-enc');
+        if (!btn) return;
+        const nome = btn.getAttribute('data-nome') || '';
+        const contacto = btn.getAttribute('data-contacto') || '';
+        const email = btn.getAttribute('data-email') || '';
+        const filhos = btn.getAttribute('data-filhos') || '';
+
+        document.getElementById('encModalTitle').textContent = 'Editar Encarregado';
+        document.getElementById('encNome').value = nome;
+        document.getElementById('encContacto').value = contacto;
+        document.getElementById('encEmail').value = email;
+        document.getElementById('encFilhos').value = filhos.replace(/,/g, ', ');
+      });
+
+      const encModalEl = document.getElementById('encModal');
+      encModalEl.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('encModalTitle').textContent = 'Novo Encarregado';
+        document.getElementById('formEncarregado').reset();
+      });
+
+      document.getElementById('formEncarregado').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = {
+          nome: document.getElementById('encNome').value,
+          contacto: document.getElementById('encContacto').value,
+          email: document.getElementById('encEmail').value,
+          filhos: document.getElementById('encFilhos').value.split(',').map(s => s.trim()).filter(Boolean)
+        };
+        console.log('Encarregado form submit (stub):', data);
+        bootstrap.Modal.getInstance(encModalEl).hide();
+      });
+
+      // Simple filter implementation (client-side)
+      document.getElementById('btnFilterEnc').addEventListener('click', function () {
+        const q = document.getElementById('filterEncSearch').value.toLowerCase().trim();
+        const minFilhos = document.getElementById('filterEncMinFilhos').value;
+        const rows = Array.from(document.querySelectorAll('#listaEncarregados tr'));
+        rows.forEach(r => {
+          const nome = r.children[0].textContent.toLowerCase();
+          const contacto = r.children[1].textContent.toLowerCase();
+          const email = r.children[2].textContent.toLowerCase();
+          const filhos = r.children[3].textContent.split(',').map(s => s.trim()).filter(Boolean);
+          let visible = true;
+          if (q && !(nome.includes(q) || contacto.includes(q) || email.includes(q))) visible = false;
+          if (minFilhos && filhos.length < parseInt(minFilhos)) visible = false;
+          r.style.display = visible ? '' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>

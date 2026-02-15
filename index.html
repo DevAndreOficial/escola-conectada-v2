@@ -66,37 +66,7 @@
       
       <div class="login-body">
         <form id="loginForm">
-          <!-- Profile Selection -->
-          <div class="mb-4">
-            <label class="form-label">Selecione o seu perfil</label>
-            <div class="profile-select">
-              <div class="profile-option" data-profile="admin">
-                <div class="profile-option-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <span class="profile-option-label">Coordenador</span>
-              </div>
-              <div class="profile-option" data-profile="professor">
-                <div class="profile-option-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <span class="profile-option-label">Professor</span>
-              </div>
-              <div class="profile-option" data-profile="aluno">
-                <div class="profile-option-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                </div>
-                <span class="profile-option-label">Aluno</span>
-              </div>
-              <div class="profile-option" data-profile="encarregado">
-                <div class="profile-option-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                </div>
-                <span class="profile-option-label">Encarregado</span>
-              </div>
-            </div>
-            <input type="hidden" id="selectedProfile" name="profile" required>
-          </div>
+          <!-- (Perfil removido: autenticação por credenciais apenas) -->
           
           <!-- Username -->
           <div class="form-group">
@@ -125,6 +95,7 @@
           <button type="submit" class="btn btn-primary w-100 btn-lg">
             Entrar
           </button>
+          <div id="detectMessage" class="small text-success mt-2" style="display:none"></div>
           
           <!-- Help link -->
           <div class="text-center mt-3">
@@ -157,6 +128,15 @@
           <p class="mb-0 text-muted small">
             Em caso de dificuldades de acesso, dirija-se à secretaria da instituição de ensino com o seu documento de identificação.
           </p>
+
+          <hr />
+          <h6>Exemplos de utilizadores (demo)</h6>
+          <ul class="small">
+            <li><strong>Coordenador</strong>: utilizador <code>admin</code> / palavra-passe <code>admin123</code></li>
+            <li><strong>Professor</strong>: utilizador <code>prof1</code> / palavra-passe <code>prof123</code></li>
+            <li><strong>Aluno</strong>: utilizador <code>aluno1</code> / palavra-passe <code>aluno123</code></li>
+            <li><strong>Encarregado</strong>: utilizador <code>enc1</code> / palavra-passe <code>enc123</code></li>
+          </ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
@@ -170,73 +150,95 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const profileOptions = document.querySelectorAll('.profile-option');
-      const selectedProfileInput = document.getElementById('selectedProfile');
       const loginForm = document.getElementById('loginForm');
       const togglePassword = document.getElementById('togglePassword');
       const passwordInput = document.getElementById('password');
       const eyeIcon = document.getElementById('eyeIcon');
-      
-      // Profile selection
-      profileOptions.forEach(function(option) {
-        option.addEventListener('click', function() {
-          profileOptions.forEach(function(opt) {
-            opt.classList.remove('active');
-          });
-          this.classList.add('active');
-          selectedProfileInput.value = this.dataset.profile;
-        });
-      });
-      
+      const detectMessage = document.getElementById('detectMessage');
+
+      // Demo users (fictitious)
+      const demoUsers = [
+        { username: 'admin', password: 'admin123', profile: 'admin' },
+        { username: 'prof1', password: 'prof123', profile: 'professor' },
+        { username: 'aluno1', password: 'aluno123', profile: 'aluno' },
+        { username: 'enc1', password: 'enc123', profile: 'encarregado' },
+        { username: 'sec1', password: 'sec123', profile: 'secretario' }
+      ];
+
+      const redirectMap = {
+        'admin': 'public/views/admin/dashboard.html',
+        'professor': 'public/views/professor/dashboard.html',
+        'aluno': 'public/views/aluno/dashboard.html',
+        'encarregado': 'public/views/encarregado/dashboard.html'
+        ,'secretario': 'public/views/secretario/dashboard.html'
+      };
+
+      // Profile selection removed: logic now relies only on credential detection
+
       // Toggle password visibility
       togglePassword.addEventListener('click', function() {
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
-        
+
         if (type === 'text') {
           eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
         } else {
           eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
         }
       });
-      
-      // Form submission (simulation)
+
+      // Try detect profile based on credentials
+      function detectProfile(username, password) {
+        if (!username || !password) return null;
+        const user = demoUsers.find(u => u.username === username && u.password === password);
+        return user ? user.profile : null;
+      }
+
+      // Live detect when fields change
+      const usernameInput = document.getElementById('username');
+      usernameInput.addEventListener('input', tryDetect);
+      passwordInput.addEventListener('input', tryDetect);
+
+      function tryDetect() {
+        const u = usernameInput.value.trim();
+        const p = passwordInput.value.trim();
+        const detected = detectProfile(u, p);
+        if (detected) {
+          detectMessage.textContent = 'Perfil detectado: ' + detected;
+          detectMessage.style.display = 'block';
+        } else {
+          detectMessage.style.display = 'none';
+        }
+      }
+
+      // Form submission (uses demo users)
       loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const profile = selectedProfileInput.value;
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        
-        // Validation
-        if (!profile) {
-          alert('Por favor, selecione o seu perfil.');
-          return;
-        }
-        
+
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+
         if (!username || !password) {
           alert('Por favor, preencha todos os campos.');
           return;
         }
-        
-        // Simulate login - redirect to appropriate dashboard
-        const redirectMap = {
-          'admin': 'public/views/admin/dashboard.html',
-          'professor': 'public/views/professor/dashboard.html',
-          'aluno': 'public/views/aluno/dashboard.html',
-          'encarregado': 'public/views/encarregado/dashboard.html'
-        };
-        
+
+        // Try to detect by credentials
+        let profile = detectProfile(username, password);
+
+        if (!profile) {
+          alert('Credenciais inválidas. Use os exemplos no menu de ajuda para testar.');
+          return;
+        }
+
         // Show loading state
         const submitBtn = loginForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>A entrar...';
         submitBtn.disabled = true;
-        
-        // Simulate delay
+
         setTimeout(function() {
           window.location.href = redirectMap[profile];
-        }, 1000);
+        }, 800);
       });
     });
   </script>

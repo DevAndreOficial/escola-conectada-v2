@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes da Turma - Administração | SGE MED Angola</title>
+  <title>Meu Perfil - Administração | SGE MED Angola</title>
   
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,162 +14,12 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/sidebar.css">
-  
-  <style>
-    .detail-header {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-left: 4px solid #1a4480;
-      border-radius: 4px;
-    }
-    
-    .detail-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #1a4480;
-      margin: 0 0 0.3rem 0;
-    }
-    
-    .detail-subtitle {
-      font-size: 0.9rem;
-      color: #6c757d;
-    }
-    
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    
-    .info-item {
-      background: white;
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      padding: 1rem;
-    }
-    
-    .info-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #6c757d;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    
-    .info-value {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #1a4480;
-      word-break: break-word;
-    }
-    
-    .section-header {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #1a4480;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.7rem;
-      border-bottom: 2px solid #1a4480;
-    }
-    
-    .table-responsive-custom {
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      overflow-x: auto;
-    }
-    
-    .table-custom {
-      font-size: 0.9rem;
-      margin-bottom: 0;
-    }
-    
-    .table-custom thead {
-      background-color: #f8f9fa;
-    }
-    
-    .table-custom thead th {
-      color: #1a4480;
-      font-weight: 600;
-      padding: 0.7rem;
-      border-bottom: 2px solid #dee2e6;
-    }
-    
-    .table-custom td {
-      padding: 0.7rem;
-      border-bottom: 1px solid #dee2e6;
-    }
-    
-    .table-custom tbody tr:hover {
-      background-color: #f8f9fa;
-    }
-    
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.9rem;
-    }
-    
-    .action-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .action-buttons .btn {
-      padding: 0.7rem 1rem;
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-      .detail-header {
-        padding: 1rem;
-      }
-      
-      .detail-title {
-        font-size: 1.1rem;
-      }
-      
-      .info-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-      }
-      
-      .info-item {
-        padding: 0.8rem;
-      }
-      
-      .section-header {
-        font-size: 0.95rem;
-        margin-top: 1rem;
-        margin-bottom: 0.8rem;
-      }
-      
-      .table-custom {
-        font-size: 0.8rem;
-      }
-      
-      .table-custom thead th,
-      .table-custom td {
-        padding: 0.5rem;
-      }
-      
-      .action-buttons {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="main-wrapper">
+    <!-- Sidebar Overlay (Mobile) -->
     <div class="sidebar-overlay"></div>
+    
     <!-- Sidebar -->
     <aside class="sidebar">
       <button class="sidebar-close">
@@ -351,151 +201,169 @@
         </button>
       </div>
     </aside>
-
+    <!-- Main Content -->
     <main class="main-content">
+      <!-- Header -->
       <header class="main-header">
         <div class="header-left">
-          <button class="mobile-toggle">☰</button>
-          <h1 class="header-title">Detalhes da Turma</h1>
+          <button class="mobile-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <h1 class="header-title">Meu Perfil</h1>
         </div>
         <div class="header-right">
-          <div class="header-user"><div class="header-user-avatar">AD</div><div class="header-user-info"><span class="header-user-name">Administrador</span><span class="header-user-role">Administração</span></div></div>
+          <div class="header-user">
+            <div class="header-user-avatar">AD</div>
+            <div class="header-user-info">
+              <span class="header-user-name">Administrador</span>
+              <span class="header-user-role">Administração</span>
+            </div>
+          </div>
         </div>
       </header>
-
+      
+      <!-- Page Content -->
       <div class="page-content">
-        <a href="turmas.html" class="btn-back btn btn-outline-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          Voltar
-        </a>
-
-        <!-- Header Section -->
-        <div class="detail-header">
-          <h1 class="detail-title">Turma 10ª A</h1>
-          <p class="detail-subtitle">Curso Informática • I Ciclo (Ativa)</p>
-        </div>
-
-        <!-- Informações da Turma -->
-        <h2 class="section-header">Informações da Turma</h2>
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="info-label">Código da Turma</span>
-            <div class="info-value">INFO-10AD</div>
+        <div class="row g-4">
+          <!-- Profile Card -->
+          <div class="col-lg-4">
+            <div class="profile-card">
+              <div class="profile-header">
+                <div class="profile-avatar">AD</div>
+                <h3 class="profile-name">Administrador Geral</h3>
+                <p class="profile-role mb-0">Administração do Sistema</p>
+              </div>
+              <div class="profile-body">
+                <div class="profile-info-group">
+                  <div class="profile-info-title">Informações de Conta</div>
+                  <div class="profile-info-item">
+                    <span class="profile-info-label">Utilizador:</span>
+                    <span class="profile-info-value">admin</span>
+                  </div>
+                  <div class="profile-info-item">
+                    <span class="profile-info-label">Último acesso:</span>
+                    <span class="profile-info-value">Hoje, 08:45</span>
+                  </div>
+                  <div class="profile-info-item">
+                    <span class="profile-info-label">Estado:</span>
+                    <span class="profile-info-value"><span class="badge badge-success">Activo</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="info-item">
-            <span class="info-label">Curso</span>
-            <div class="info-value">Informática</div>
+          
+          <!-- Profile Settings -->
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Configurações da Conta</h5>
+              </div>
+              <div class="card-body">
+                <form id="formPerfil">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Nome Completo</label>
+                      <input type="text" class="form-control" value="Administrador Geral" readonly>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Email Institucional</label>
+                      <input type="email" class="form-control" value="admin@escola.med.ao">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Telefone</label>
+                      <input type="tel" class="form-control" value="+244 923 000 001">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Cargo</label>
+                      <input type="text" class="form-control" value="Administrador do Sistema" readonly>
+                    </div>
+                  </div>
+                  
+                  <hr class="my-4">
+                  
+                  <h6 class="mb-3">Alterar Palavra-passe</h6>
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label class="form-label">Palavra-passe Actual</label>
+                      <input type="password" class="form-control" placeholder="Digite a actual">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Nova Palavra-passe</label>
+                      <input type="password" class="form-control" placeholder="Digite a nova">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Confirmar Nova</label>
+                      <input type="password" class="form-control" placeholder="Confirme a nova">
+                    </div>
+                  </div>
+                  
+                  <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Guardar Alterações</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            
+            <!-- System Info -->
+            <div class="card mt-4">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Informações do Sistema</h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Versão do Sistema:</span>
+                      <span class="fw-medium">1.0.0</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Ano Lectivo:</span>
+                      <span class="fw-medium">2026/2025</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Escola:</span>
+                      <span class="fw-medium">Escola Secundária de Luanda</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between">
+                      <span class="text-muted">Província:</span>
+                      <span class="fw-medium">Luanda</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="info-item">
-            <span class="info-label">Classe</span>
-            <div class="info-value">10ª</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Turno</span>
-            <div class="info-value">Matutino</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Sala de Aula</span>
-            <div class="info-value">Bloco A - Sala 105</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Data de Criação</span>
-            <div class="info-value">10 de Janeiro de 2025</div>
-          </div>
-        </div>
-
-        <!-- Diretor de Turma -->
-        <h2 class="section-header">Diretor de Turma</h2>
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="info-label">Nome</span>
-            <div class="info-value">Maria João dos Santos</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Especialidade</span>
-            <div class="info-value">Matemática</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Email</span>
-            <div class="info-value">maria.joao@escola.med.ao</div>
-          </div>
-          <div class="info-item">
-            <span class="info-label">Telefone</span>
-            <div class="info-value">+244 923 000 002</div>
-          </div>
-        </div>
-
-        <!-- Alunos da Turma -->
-        <h2 class="section-header">Alunos Inscritos (32 alunos)</h2>
-        <div class="table-responsive-custom">
-          <table class="table table-custom align-middle">
-            <thead>
-              <tr>
-                <th>Nº</th>
-                <th>Nome</th>
-                <th>Nº Processo</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><strong>Ana Pereira Silva</strong></td>
-                <td>2026-001</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><strong>Bruno Mendes Costa</strong></td>
-                <td>2026-002</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><strong>Cátia Silva Santos</strong></td>
-                <td>2026-003</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><strong>Dário José Mateus</strong></td>
-                <td>2026-004</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><strong>Elisa Maria da Cruz</strong></td>
-                <td>2026-005</td>
-                <td><span class="badge bg-success">Ativo</span></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td><strong>Fernando Nunes da Silva</strong></td>
-                <td>2026-006</td>
-                <td><span class="badge bg-warning">Suspenso</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-          <button class="btn btn-primary">Editar Turma</button>
-          <button class="btn btn-outline-secondary">Descarregar Pauta</button>
-          <button class="btn btn-outline-danger">Eliminar Turma</button>
         </div>
       </div>
-
-      <footer class="main-footer"><p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p></footer>
+      
+      <!-- Footer -->
+      <footer class="main-footer">
+        <p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p>
+      </footer>
     </main>
   </div>
-
+  
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Global JS -->
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('formPerfil').addEventListener('submit', function(e) {
+        e.preventDefault();
+        Utils.mostrarNotificacao('Alterações guardadas com sucesso!', 'success');
+      });
+    });
+  </script>
 </body>
 </html>
