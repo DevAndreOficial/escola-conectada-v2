@@ -202,10 +202,10 @@
           <h1 class="header-title">Encarregados</h1>
         </div>
         <div class="header-right">
-          <div class="header-user">
-            <div class="header-user-avatar">AD</div>
-            <div class="header-user-info"><span class="header-user-name">Administrador</span><span
-                class="header-user-role">Administração</span></div>
+          <div class="header-user-avatar">SC</div>
+          <div class="header-user-info">
+            <span class="header-user-name">Secretário</span>
+            <span class="header-user-role">Secretária</span>
           </div>
         </div>
       </header>
@@ -268,7 +268,8 @@
                         data-email="maria.santos@email.ao" data-bi="000123456 LA" data-profissao="Professora"
                         data-endereco="Rua Principal, Luanda" data-relacao="Mãe"
                         data-filhos="Ana Maria Santos,Pedro João Santos">Editar</button>
-                      <button class="btn btn-outline-danger btn-eliminar-enc" data-nome="Maria José Santos">Eliminar</button>
+                      <button class="btn btn-outline-danger btn-eliminar-enc"
+                        data-nome="Maria José Santos">Eliminar</button>
                     </td>
                   </tr>
                   <tr>
@@ -283,7 +284,8 @@
                         data-email="antonio.silva@email.ao" data-bi="000456789 LA" data-profissao="Engenheiro"
                         data-endereco="Avenida Independência, Luanda" data-relacao="Pai"
                         data-filhos="João Silva">Editar</button>
-                      <button class="btn btn-sm btn-outline-danger btn-eliminar-enc" data-nome="António Silva">Eliminar</button>
+                      <button class="btn btn-sm btn-outline-danger btn-eliminar-enc"
+                        data-nome="António Silva">Eliminar</button>
                     </td>
                   </tr>
                 </tbody>
@@ -358,8 +360,10 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
               </div>
               <div class="modal-body">
-                <p class="mb-0">Tem a certeza que deseja eliminar o encarregado <strong id="nomeEncarregadoAEliminar">-</strong>?</p>
-                <p class="text-muted small mt-2">Esta ação é irreversível e todos os dados do encarregado serão removidos do sistema.</p>
+                <p class="mb-0">Tem a certeza que deseja eliminar o encarregado <strong
+                    id="nomeEncarregadoAEliminar">-</strong>?</p>
+                <p class="text-muted small mt-2">Esta ação é irreversível e todos os dados do encarregado serão
+                  removidos do sistema.</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -384,17 +388,17 @@
       function validarCodigosAlunos(codigos) {
         const regex = /^\d{4}-\d{3}$/;
         const codigosArray = codigos.split(',').map(s => s.trim()).filter(Boolean);
-        
+
         if (codigosArray.length === 0) {
           return { valido: false, mensagem: 'Deve inserir pelo menos um código de aluno.' };
         }
-        
+
         for (let codigo of codigosArray) {
           if (!regex.test(codigo)) {
             return { valido: false, mensagem: `Formato inválido: "${codigo}". Use o formato YYYY-### (ex: 2026-001).` };
           }
         }
-        
+
         return { valido: true, mensagem: '' };
       }
 
@@ -427,10 +431,10 @@
         const btn = e.target.closest('.btn-eliminar-enc');
         if (!btn) return;
         const nome = btn.getAttribute('data-nome') || '';
-        
+
         // Atualizar nome no modal
         document.getElementById('nomeEncarregadoAEliminar').textContent = nome;
-        
+
         // Abrir modal
         const modal = new bootstrap.Modal(document.getElementById('confirmarEliminacaoModal'));
         modal.show();
@@ -467,10 +471,10 @@
 
       document.getElementById('formEncarregado').addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const codigosInput = document.getElementById('encFilhos').value;
         const encCodigosError = document.getElementById('encCodigosError');
-        
+
         // Validar códigos dos alunos
         const validacao = validarCodigosAlunos(codigosInput);
         if (!validacao.valido) {
@@ -478,11 +482,11 @@
           encCodigosError.style.display = 'block';
           return; // Não enviar se houver erro
         }
-        
+
         // Se passou na validação, limpar erro e proceder
         encCodigosError.textContent = '';
         encCodigosError.style.display = 'none';
-        
+
         const data = {
           nome: document.getElementById('encNome').value,
           contacto: document.getElementById('encContacto').value,
@@ -493,14 +497,14 @@
           relacao: document.getElementById('encRelacao').value,
           filhos: codigosInput.split(',').map(s => s.trim()).filter(Boolean)
         };
-        
+
         console.log('Encarregado form submit (stub):', data);
-        
+
         // Mostrar notificação de sucesso
         if (typeof Utils !== 'undefined' && Utils.mostrarNotificacao) {
           Utils.mostrarNotificacao('Encarregado gravado com sucesso!', 'success');
         }
-        
+
         bootstrap.Modal.getInstance(encModalEl).hide();
       });
 
