@@ -362,9 +362,11 @@
         </div>
         <div class="header-right">
           <div class="header-user">
-            <div class="header-user-avatar">AD</div>
-            <div class="header-user-info"><span class="header-user-name">Administrador</span><span
-                class="header-user-role">Administração</span></div>
+            <div class="header-user-avatar">SC</div>
+            <div class="header-user-info">
+              <span class="header-user-name">Secretário</span>
+              <span class="header-user-role">Secretária</span>
+            </div>
           </div>
         </div>
       </header>
@@ -440,152 +442,40 @@
                 <th>Turma</th>
                 <th>Turno</th>
                 <th>Horas/Semana</th>
+                <th>Acções</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>Matemática</strong></td>
-                <td>10º A</td>
+                <td>EIA-10AD</td>
                 <td>Matutino</td>
                 <td>4</td>
+                <td><a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a></td>
               </tr>
               <tr>
                 <td><strong>Matemática</strong></td>
-                <td>10º B</td>
+                <td>EIA-10BD</td>
                 <td>Vespertino</td>
                 <td>4</td>
+                <td><a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a></td>
               </tr>
               <tr>
                 <td><strong>Cálculo</strong></td>
-                <td>12º A</td>
+                <td>ELE-10BD</td>
                 <td>Matutino</td>
                 <td>3</td>
+                <td><a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a></td>
               </tr>
               <tr>
                 <td><strong>Geometria</strong></td>
-                <td>9º C</td>
+                <td>INFGEST-10AD</td>
                 <td>Vespertino</td>
                 <td>3</td>
+                <td><a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a></td>
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-          <button id="btnEditProfessor" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#profModal">Editar Professor</button>
-          <button class="btn btn-outline-danger">Eliminar Professor</button>
-        </div>
-
-        <!-- Modal: Adicionar / Editar Professor (reutilizado) -->
-        <div class="modal fade" id="profModal" tabindex="-1">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="profModalTitle">Editar Professor</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <form id="formProfessor">
-                <div class="modal-body">
-                  <input type="hidden" id="profId" value="">
-                  <div class="mb-3">
-                    <label class="form-label">Nome Completo</label>
-                    <input type="text" id="profNome" class="form-control" required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" id="profEmail" class="form-control" required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Telefone</label>
-                    <input type="tel" id="profTelefone" class="form-control">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Disciplinas que Leciona</label>
-                    <div class="border rounded p-3" style="max-height: 200px; overflow-y: auto;">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_mat" value="Matemática"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_mat">Matemática</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_port" value="Português"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_port">Português</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_ing" value="Inglês" name="disciplinas">
-                        <label class="form-check-label" for="disc_ing">Inglês</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_fis" value="Física" name="disciplinas">
-                        <label class="form-check-label" for="disc_fis">Física</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_qui" value="Química"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_qui">Química</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_bio" value="Biologia"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_bio">Biologia</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_hist" value="História"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_hist">História</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_geo" value="Geografia"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_geo">Geografia</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_info" value="Informática"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_info">Informática</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="disc_ed" value="Educação Física"
-                          name="disciplinas">
-                        <label class="form-check-label" for="disc_ed">Educação Física</label>
-                      </div>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Turmas</label>
-                      <div class="border rounded p-3" style="max-height: 200px; overflow-y: auto;">
-                        <!-- Exemplos estáticos; idealmente carregar via API -->
-                        <div class="form-check">
-                          <input class="form-check-input turma-checkbox" type="checkbox" id="turma_1" value="1"
-                            name="turmas">
-                          <label class="form-check-label" for="turma_1">Turma A1 <small class="text-muted">• Turno:
-                              Manhã — Sala: A101</small></label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input turma-checkbox" type="checkbox" id="turma_2" value="2"
-                            name="turmas">
-                          <label class="form-check-label" for="turma_2">Turma B1 <small class="text-muted">• Turno:
-                              Tarde — Sala: B202</small></label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input turma-checkbox" type="checkbox" id="turma_3" value="3"
-                            name="turmas">
-                          <label class="form-check-label" for="turma_3">Turma C1 <small class="text-muted">• Turno:
-                              Noite — Sala: C303</small></label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -599,43 +489,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const profModalEl = document.getElementById('profModal');
-
-      // When modal shown, populate fields from the details page
-      profModalEl.addEventListener('show.bs.modal', function () {
-        const nome = document.querySelector('.detail-title')?.textContent.trim() || '';
-        const email = Array.from(document.querySelectorAll('.info-item')).find(i => i.querySelector('.info-label')?.textContent.trim() === 'Email')?.querySelector('.info-value')?.textContent.trim() || '';
-        const telefone = Array.from(document.querySelectorAll('.info-item')).find(i => i.querySelector('.info-label')?.textContent.trim() === 'Telefone')?.querySelector('.info-value')?.textContent.trim() || '';
-
-        document.getElementById('profModalTitle').textContent = 'Editar Professor';
-        document.getElementById('profNome').value = nome;
-        document.getElementById('profEmail').value = email;
-        document.getElementById('profTelefone').value = telefone;
-
-        // mark disciplines based on the Disciplinas Lecionadas table
-        const disciplinas = Array.from(document.querySelectorAll('.table-custom tbody tr')).map(r => r.children[0]?.textContent.trim()).filter(Boolean).map(s => s.replace(/\n/g, '').trim());
-        document.querySelectorAll('input[name="disciplinas"]').forEach(cb => {
-          cb.checked = disciplinas.some(d => d.toLowerCase().includes(cb.value.toLowerCase()));
-        });
-      });
-
-      // Simple submit stub
-      document.getElementById('formProfessor').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const disciplinas = Array.from(document.querySelectorAll('input[name="disciplinas"]:checked')).map(i => i.value);
-        const data = {
-          nome: document.getElementById('profNome').value,
-          email: document.getElementById('profEmail').value,
-          telefone: document.getElementById('profTelefone').value,
-          disciplinas: disciplinas
-        };
-        console.log('Salvar professor (stub):', data);
-        bootstrap.Modal.getInstance(profModalEl).hide();
-      });
-    });
-  </script>
 </body>
 
 </html>

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-AO">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalhes do Aluno - Administração | SGE MED Angola</title>
-  
+
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="../../css/sidebar.css">
-  
+
   <style>
     .detail-header {
       background: #f8f9fa;
@@ -23,33 +24,33 @@
       border-left: 4px solid #1a4480;
       border-radius: 4px;
     }
-    
+
     .detail-title {
       font-size: 1.3rem;
       font-weight: 700;
       color: #1a4480;
       margin: 0 0 0.3rem 0;
     }
-    
+
     .detail-subtitle {
       font-size: 0.9rem;
       color: #6c757d;
     }
-    
+
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
       margin-bottom: 2rem;
     }
-    
+
     .info-item {
       background: white;
       border: 1px solid #dee2e6;
       border-radius: 4px;
       padding: 1rem;
     }
-    
+
     .info-label {
       font-size: 0.75rem;
       font-weight: 600;
@@ -59,14 +60,14 @@
       display: block;
       margin-bottom: 0.4rem;
     }
-    
+
     .info-value {
       font-size: 0.95rem;
       font-weight: 600;
       color: #1a4480;
       word-break: break-word;
     }
-    
+
     .section-header {
       font-size: 1.05rem;
       font-weight: 700;
@@ -76,38 +77,38 @@
       padding-bottom: 0.7rem;
       border-bottom: 2px solid #1a4480;
     }
-    
+
     .table-responsive-custom {
       border: 1px solid #dee2e6;
       border-radius: 4px;
       overflow-x: auto;
     }
-    
+
     .table-custom {
       font-size: 0.9rem;
       margin-bottom: 0;
     }
-    
+
     .table-custom thead {
       background-color: #f8f9fa;
     }
-    
+
     .table-custom thead th {
       color: #1a4480;
       font-weight: 600;
       padding: 0.7rem;
       border-bottom: 2px solid #dee2e6;
     }
-    
+
     .table-custom td {
       padding: 0.7rem;
       border-bottom: 1px solid #dee2e6;
     }
-    
+
     .table-custom tbody tr:hover {
       background-color: #f8f9fa;
     }
-    
+
     .btn-back {
       display: inline-flex;
       align-items: center;
@@ -115,58 +116,59 @@
       margin-bottom: 1.5rem;
       font-size: 0.9rem;
     }
-    
+
     .action-buttons {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 1rem;
       margin-top: 2rem;
     }
-    
+
     .action-buttons .btn {
       padding: 0.7rem 1rem;
       font-size: 0.9rem;
     }
-    
+
     @media (max-width: 768px) {
       .detail-header {
         padding: 1rem;
       }
-      
+
       .detail-title {
         font-size: 1.1rem;
       }
-      
+
       .info-grid {
         grid-template-columns: 1fr;
         gap: 0.8rem;
       }
-      
+
       .info-item {
         padding: 0.8rem;
       }
-      
+
       .section-header {
         font-size: 0.95rem;
         margin-top: 1rem;
         margin-bottom: 0.8rem;
       }
-      
+
       .table-custom {
         font-size: 0.8rem;
       }
-      
+
       .table-custom thead th,
       .table-custom td {
         padding: 0.5rem;
       }
-      
+
       .action-buttons {
         grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
 </head>
+
 <body>
   <div class="main-wrapper">
     <div class="sidebar-overlay"></div>
@@ -359,7 +361,13 @@
           <h1 class="header-title">Detalhes do Aluno</h1>
         </div>
         <div class="header-right">
-          <div class="header-user"><div class="header-user-avatar">AD</div><div class="header-user-info"><span class="header-user-name">Administrador</span><span class="header-user-role">Administração</span></div></div>
+          <div class="header-user">
+            <div class="header-user-avatar">SC</div>
+            <div class="header-user-info">
+              <span class="header-user-name">Secretário</span>
+              <span class="header-user-role">Secretária</span>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -375,7 +383,7 @@
         <!-- Header Section -->
         <div class="detail-header">
           <h1 class="detail-title">Ana Pereira Silva</h1>
-          <p class="detail-subtitle">Aluno • Informática • 10ª Classe (Ativo)</p>
+          <p class="detail-subtitle">Aluno • Informática • EIA-10AD (Ativo)</p>
         </div>
 
         <!-- Informações Pessoais -->
@@ -416,11 +424,11 @@
           </div>
           <div class="info-item">
             <span class="info-label">Classe</span>
-            <div class="info-value">10ª Classe</div>
+            <div class="info-value">EIA-10AD</div>
           </div>
           <div class="info-item">
             <span class="info-label">Turma</span>
-            <div class="info-value">Turma A</div>
+            <div class="info-value">INFGEST-10AD</div>
           </div>
           <div class="info-item">
             <span class="info-label">Data de Matrícula</span>
@@ -500,13 +508,16 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="btn btn-primary">Editar Aluno</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarAlunoModal">Editar
+            Aluno</button>
           <button class="btn btn-outline-secondary">Descarregar Boletim</button>
-          <button class="btn btn-outline-danger">Eliminar Aluno</button>
+          <button class="btn btn-outline-danger" id="btnEliminar">Eliminar Aluno</button>
         </div>
       </div>
 
-      <footer class="main-footer"><p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p></footer>
+      <footer class="main-footer">
+        <p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p>
+      </footer>
     </main>
   </div>
 
@@ -514,5 +525,217 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
+
+  <!-- Modal: Editar Aluno -->
+  <div class="modal fade" id="editarAlunoModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Dados do Aluno</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="formEditarAluno">
+          <div class="modal-body">
+            <div class="row g-3">
+              <!-- Informações Pessoais -->
+              <div class="col-12">
+                <h6 class="text-primary mb-3">Informações Pessoais</h6>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Nome <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="editNome" required placeholder="Nome completo do aluno">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Nº de Processo <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="editNumProcesso" required placeholder="2026-001">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="editEmail" required placeholder="email@aluno.med.ao">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Telefone <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="editTelefone" required placeholder="+244 922 000 004">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Data de Nascimento <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="editDataNascimento" required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Número de ID <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="editNumID" required placeholder="000456789012">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Endereço <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="editEndereco" required placeholder="Rua, número, cidade">
+              </div>
+
+              <!-- Informações Académicas -->
+              <div class="col-12">
+                <h6 class="text-primary mb-3 mt-3">Informações Académicas</h6>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Curso <span class="text-danger">*</span></label>
+                <select class="form-select" id="editCurso" required>
+                  <option value="">Selecione...</option>
+                  <option value="Informática">Informática</option>
+                  <option value="Electrónica">Electrónica</option>
+                  <option value="Contabilidade">Contabilidade</option>
+                  <option value="Administração">Administração</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Classe <span class="text-danger">*</span></label>
+                <select class="form-select" id="editClasse" required>
+                  <option value="">Selecione...</option>
+                  <option value="EIA-10AD">EIA-10AD</option>
+                  <option value="INFGEST-11AD">INFGEST-11AD</option>
+                  <option value="12ª Classe">12ª Classe</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Turma <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="editTurma" required placeholder="INFGEST-10AD">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Data de Matrícula <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="editDataMatricula" required>
+              </div>
+
+              <!-- Encarregado de Educação -->
+              <div class="col-12">
+                <h6 class="text-primary mb-3 mt-3">Encarregado de Educação</h6>
+              </div>
+
+              <div class="col-md-12">
+                <label class="form-label">Nome do Encarregado <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="editNomeEncarregado" required
+                  placeholder="Nome do encarregado de educação">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Telefone do Encarregado <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="editTelefoneEncarregado" required
+                  placeholder="+244 912 345 678">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email do Encarregado <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="editEmailEncarregado" required
+                  placeholder="email@email.ao">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Confirmação de Eliminação -->
+  <div class="modal fade" id="confirmarEliminacaoModal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Confirmar Eliminação</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-0">Tem a certeza que deseja eliminar o aluno <strong>Ana Pereira Silva</strong>?</p>
+          <p class="text-muted small mt-2">Esta ação é irreversível e todos os dados do aluno serão removidos do
+            sistema.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="btnConfirmarEliminacao">Sim, Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Carregar dados do aluno ao abrir o modal de edição
+      const editarAlunoModal = document.getElementById('editarAlunoModal');
+      editarAlunoModal.addEventListener('show.bs.modal', function () {
+        // Preencher os campos com os dados atuais do aluno
+        document.getElementById('editNome').value = 'Ana Pereira Silva';
+        document.getElementById('editNumProcesso').value = '2026-001';
+        document.getElementById('editEmail').value = 'ana.pereira@aluno.med.ao';
+        document.getElementById('editTelefone').value = '+244 922 000 004';
+        document.getElementById('editDataNascimento').value = '2008-03-03';
+        document.getElementById('editNumID').value = '000456789012';
+        document.getElementById('editEndereco').value = 'Av. João Paulo II, nº 123, Luanda';
+        document.getElementById('editCurso').value = 'Informática';
+        document.getElementById('editClasse').value = 'EIA-10AD';
+        document.getElementById('editTurma').value = 'INFGEST-10AD';
+        document.getElementById('editDataMatricula').value = '2025-03-05';
+        document.getElementById('editNomeEncarregado').value = 'Maria José Santos';
+        document.getElementById('editTelefoneEncarregado').value = '+244 912 345 678';
+        document.getElementById('editEmailEncarregado').value = 'maria.santos@email.ao';
+      });
+
+      // Form submission - Editar Aluno
+      document.getElementById('formEditarAluno').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('editNome').value;
+
+        // Simular save
+        if (typeof Utils !== 'undefined' && Utils.mostrarNotificacao) {
+          Utils.mostrarNotificacao('Dados de ' + nome + ' atualizados com sucesso!', 'success');
+        }
+
+        // Fechar modal
+        bootstrap.Modal.getInstance(document.getElementById('editarAlunoModal')).hide();
+
+        // Reset form
+        this.reset();
+      });
+
+      // Botão Eliminar Aluno
+      const btnEliminar = document.getElementById('btnEliminar');
+      btnEliminar.addEventListener('click', function (e) {
+        e.preventDefault();
+        // Abrir modal de confirmação
+        const confirmarEliminacaoModal = new bootstrap.Modal(document.getElementById('confirmarEliminacaoModal'));
+        confirmarEliminacaoModal.show();
+      });
+
+      // Confirmar Eliminação
+      const btnConfirmarEliminacao = document.getElementById('btnConfirmarEliminacao');
+      btnConfirmarEliminacao.addEventListener('click', function () {
+        const nomeAluno = 'Ana Pereira Silva';
+
+        // Simular eliminação
+        if (typeof Utils !== 'undefined' && Utils.mostrarNotificacao) {
+          Utils.mostrarNotificacao('Aluno ' + nomeAluno + ' eliminado com sucesso!', 'success');
+        }
+
+        // Fechar modal
+        bootstrap.Modal.getInstance(document.getElementById('confirmarEliminacaoModal')).hide();
+
+        // Redirecionar após 1 segundo
+        setTimeout(function () {
+          window.location.href = 'alunos.html';
+        }, 1000);
+      });
+    });
+  </script>
 </body>
+
 </html>

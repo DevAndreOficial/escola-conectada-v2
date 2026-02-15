@@ -169,8 +169,8 @@
                 <label class="form-label">Classe <span class="text-danger">*</span></label>
                 <select class="form-control form-select" id="selectClasse" required>
                   <option value="">Selecione...</option>
-                  <option value="10">10ª Classe</option>
-                  <option value="11">11ª Classe</option>
+                  <option value="10">EIA-10AD</option>
+                  <option value="11">INFGEST-11AD</option>
                   <option value="12">12ª Classe</option>
                   <option value="13">13ª Classe</option>
                 </select>
@@ -415,8 +415,8 @@
         const classe = document.getElementById('selectClasse').value;
         const turma = document.getElementById('selectTurma').value;
         if (!disciplina || !classe || !turma) {
-          if (window.Utils && Utils.mostrarNotificacao) Utils.mostrarNotificacao('Seleccione disciplina, classe e turma antes de carregar alunos.', 'warning');
-          else alert('Seleccione disciplina, classe e turma antes de carregar alunos.');
+          if (window.Utils && Utils.mostrarNotificacao) Utils.mostrarNotificacao('Seleccione disciplina, classe e INFGEST-10ADntes de carregar alunos.', 'warning');
+          else alert('Seleccione disciplina, classe e INFGEST-10ADntes de carregar alunos.');
           return;
         }
 

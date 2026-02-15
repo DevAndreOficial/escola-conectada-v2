@@ -203,9 +203,11 @@
         </div>
         <div class="header-right">
           <div class="header-user">
-            <div class="header-user-avatar">AD</div>
-            <div class="header-user-info"><span class="header-user-name">Administrador</span><span
-                class="header-user-role">Administração</span></div>
+            <div class="header-user-avatar">SC</div>
+            <div class="header-user-info">
+              <span class="header-user-name">Secretário</span>
+              <span class="header-user-role">Secretária</span>
+            </div>
           </div>
         </div>
       </header>
@@ -216,7 +218,6 @@
             <h2 class="page-title">Gestão de Disciplinas</h2>
             <p class="page-subtitle">Disciplinas e respetivos detalhes</p>
           </div>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#turmaModal">Nova Disciplina</button>
         </div>
 
         <!-- Filters -->
@@ -260,7 +261,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>DISC-203</td>
+                    <td>FIS-2026</td>
                     <td>Física</td>
                     <td>Carlos Mendes</td>
                     <td>Informática, Electrónica</td>
@@ -268,20 +269,20 @@
                       <a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
                         data-bs-target="#turmaModal" data-codigo="EIA-11BD" data-curso="Electrónica"
-                        data-ciclo="II Ciclo" data-prof="Carlos Mendes" data-num="28">Editar</button>
+                        data-ciclo="EIA-10AD" data-prof="Carlos Mendes" data-num="28">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
                   </tr>
 
                   <tr>
-                    <td>DISC-204</td>
+                    <td>QUIM-204</td>
                     <td>Química</td>
                     <td>Ana Paula</td>
                     <td>Ciências Físicas e Biológicas</td>
                     <td>
                       <a href="disciplina-detalhes.html" class="btn btn-sm btn-outline-info me-1">Ver</a>
                       <button class="btn btn-sm btn-outline-secondary me-1 btn-edit" data-bs-toggle="modal"
-                        data-bs-target="#turmaModal" data-codigo="ELE-12AD" data-curso="CFB" data-ciclo="II Ciclo"
+                        data-bs-target="#turmaModal" data-codigo="ELE-12AD" data-curso="CFB" data-ciclo="EIA-10AD"
                         data-prof="Ana Paula" data-num="30">Editar</button>
                       <button class="btn btn-sm btn-outline-danger">Eliminar</button>
                     </td>
@@ -293,82 +294,6 @@
           </div>
         </div>
 
-        <!-- Modal: Adicionar / Editar Turma -->
-        <div class="modal fade" id="turmaModal" tabindex="-1">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="turmaModalTitle">Nova Disciplina</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <form id="formTurma">
-                <div class="modal-body">
-                  <input type="hidden" id="turmaId" value="">
-                  <div class="mb-3">
-                    <label class="form-label">Codigo da Disciplina</label>
-                    <input id="turmaCodigo" class="form-control" placeholder="Ex: DISC-203">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Nome da Disciplina</label>
-                    <input id="turmaNome" class="form-control" placeholder="Ex: Física, Matemática">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label">Cursos Relacionados</label>
-                        <div class="border rounded p-2" style="max-height: 150px; overflow-y: auto;">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cur_inf" value="Informática" name="cursos">
-                            <label class="form-check-label" for="cur_inf">Informática</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cur_adm" value="Administração" name="cursos">
-                            <label class="form-check-label" for="cur_adm">Administração</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cur_ele" value="Eletrónica" name="cursos">
-                            <label class="form-check-label" for="cur_ele">Eletrónica</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cur_con" value="Contabilidade" name="cursos">
-                            <label class="form-check-label" for="cur_con">Contabilidade</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label class="form-label">Classes</label>
-                        <div class="border rounded p-2" style="max-height: 150px; overflow-y: auto;">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cls_10" value="10ª Classe" name="classes">
-                            <label class="form-check-label" for="cls_10">10ª Classe</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cls_11" value="11ª Classe" name="classes">
-                            <label class="form-check-label" for="cls_11">11ª Classe</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cls_12" value="12ª Classe" name="classes">
-                            <label class="form-check-label" for="cls_12">12ª Classe</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Carga Horária Semanal</label>
-                    <input id="turmaCurso" type="number" class="form-control" placeholder="Ex: 3 horas">
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
       </div>
       <footer class="main-footer">
         <p class="mb-0">Sistema de Escola Conectada &copy; 2026 - Ministério da Educação de Angola</p>
@@ -389,18 +314,11 @@
         const prof = btn.getAttribute('data-prof') || '';
         const num = btn.getAttribute('data-num') || '';
 
-        document.getElementById('turmaModalTitle').textContent = 'Editar Turma';
         document.getElementById('turmaCodigo').value = codigo;
         document.getElementById('turmaCurso').value = curso;
         document.getElementById('turmaCiclo').value = ciclo;
         document.getElementById('turmaProf').value = prof;
         document.getElementById('turmaNum').value = num;
-      });
-
-      const turmaModalEl = document.getElementById('turmaModal');
-      turmaModalEl.addEventListener('hidden.bs.modal', function () {
-        document.getElementById('turmaModalTitle').textContent = 'Nova Turma';
-        document.getElementById('formTurma').reset();
       });
 
       document.getElementById('formTurma').addEventListener('submit', function (e) {

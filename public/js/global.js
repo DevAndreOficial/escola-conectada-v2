@@ -67,7 +67,7 @@ const DadosFicticios = {
     '12ª': ['A']
   },
 
-  // Cursos (II Ciclo)
+  // Cursos (EIA-10AD)
   cursos: [
     'Ciências Físicas e Biológicas',
     'Ciências Económicas e Jurídicas',

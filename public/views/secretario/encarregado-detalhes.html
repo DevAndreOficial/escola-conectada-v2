@@ -425,14 +425,14 @@
                 <td><strong>Ana Maria Santos</strong></td>
                 <td>2026-001</td>
                 <td>Informática</td>
-                <td>10ª Classe</td>
+                <td>EIA-10AD</td>
                 <td><span class="badge bg-success">Ativo</span></td>
               </tr>
               <tr>
                 <td><strong>Pedro João Santos</strong></td>
                 <td>2026-025</td>
                 <td>Administração</td>
-                <td>11ª Classe</td>
+                <td>INFGEST-11AD</td>
                 <td><span class="badge bg-success">Ativo</span></td>
               </tr>
             </tbody>
@@ -454,9 +454,73 @@
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="btn btn-primary">Editar Encarregado</button>
-          <button class="btn btn-outline-secondary">Enviar Mensagem</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarEncarregadoModal">Editar Encarregado</button>
           <button class="btn btn-outline-danger">Eliminar Encarregado</button>
+        </div>
+      </div>
+
+      <!-- Modal: Editar Encarregado -->
+      <div class="modal fade" id="editarEncarregadoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Encarregado</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="formEditarEncarregado">
+              <div class="modal-body">
+                <input type="hidden" id="encId" value="">
+                <div class="mb-3">
+                  <label class="form-label">Nome</label>
+                  <input id="encNome" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Contacto</label>
+                  <input id="encContacto" class="form-control" type="tel" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input id="encEmail" class="form-control" type="email" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Bilhete de Identidade (BI)</label>
+                  <input id="encBI" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Profissão</label>
+                  <input id="encProfissao" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Endereço</label>
+                  <input id="encEndereco" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Relação com os Alunos</label>
+                  <select id="encRelacao" class="form-select form-control" required>
+                    <option value="">Selecione uma relação</option>
+                    <option value="Pai">Pai</option>
+                    <option value="Mãe">Mãe</option>
+                    <option value="Avó">Avó</option>
+                    <option value="Avô">Avô</option>
+                    <option value="Tio">Tio</option>
+                    <option value="Tia">Tia</option>
+                    <option value="Tutor">Tutor</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Códigos dos Alunos (separados por vírgula)</label>
+                  <input id="encFilhos" class="form-control" placeholder="2026-001, 2026-002" required>
+                  <small class="form-text text-muted">Formato: YYYY-###</small>
+                  <div id="encCodigosError" class="text-danger small mt-1" style="display: none;"></div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Alterações</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -468,5 +532,104 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../js/global.js"></script>
   <script src="../../js/sidebar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Validar formato de códigos dos alunos (YYYY-###)
+      function validarCodigosAlunos(codigos) {
+        const regex = /^\d{4}-\d{3}$/;
+        const codigosArray = codigos.split(',').map(s => s.trim()).filter(Boolean);
+        
+        if (codigosArray.length === 0) {
+          return { valido: false, mensagem: 'Deve inserir pelo menos um código de aluno.' };
+        }
+        
+        for (let codigo of codigosArray) {
+          if (!regex.test(codigo)) {
+            return { valido: false, mensagem: `Formato inválido: "${codigo}". Use o formato YYYY-### (ex: 2026-001).` };
+          }
+        }
+        
+        return { valido: true, mensagem: '' };
+      }
+
+      // Preencher o modal com os dados atuais quando abrir
+      const modalEl = document.getElementById('editarEncarregadoModal');
+      modalEl.addEventListener('show.bs.modal', function () {
+        // Obter os dados atuais da página
+        const nome = document.querySelector('.detail-title').textContent.trim();
+        const telefone = document.evaluate("//span[contains(text(), 'Telefone')]/following::div[@class='info-value']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent || '';
+        const email = document.evaluate("//span[contains(text(), 'Email')]/following::div[@class='info-value']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent || '';
+        const bi = document.evaluate("//span[contains(text(), 'Número de ID')]/following::div[@class='info-value']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent || '';
+        const profissao = document.evaluate("//span[contains(text(), 'Profissão')]/following::div[@class='info-value']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent || '';
+        const endereco = document.evaluate("//span[contains(text(), 'Endereço')]/following::div[@class='info-value']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent || '';
+        const relacao = document.evaluate("//span[contains(text(), 'Relação com Educandos')]/following::div[@class='info-value']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue?.textContent || '';
+        
+        // Extrair códigos dos alunos da tabela
+        const rows = document.querySelectorAll('table tbody tr');
+        const codigos = Array.from(rows).map(row => row.children[1]?.textContent.trim()).filter(Boolean).join(', ');
+
+        // Preencher os campos
+        document.getElementById('encNome').value = nome;
+        document.getElementById('encContacto').value = telefone;
+        document.getElementById('encEmail').value = email;
+        document.getElementById('encBI').value = bi;
+        document.getElementById('encProfissao').value = profissao;
+        document.getElementById('encEndereco').value = endereco;
+        document.getElementById('encRelacao').value = relacao;
+        document.getElementById('encFilhos').value = codigos;
+
+        // Limpar mensagens de erro
+        const encCodigosError = document.getElementById('encCodigosError');
+        encCodigosError.textContent = '';
+        encCodigosError.style.display = 'none';
+      });
+
+      // Handler para o form submit
+      document.getElementById('formEditarEncarregado').addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const codigosInput = document.getElementById('encFilhos').value;
+        const encCodigosError = document.getElementById('encCodigosError');
+        
+        // Validar códigos dos alunos
+        const validacao = validarCodigosAlunos(codigosInput);
+        if (!validacao.valido) {
+          encCodigosError.textContent = validacao.mensagem;
+          encCodigosError.style.display = 'block';
+          return;
+        }
+        
+        // Se passou na validação, limpar erro e proceder
+        encCodigosError.textContent = '';
+        encCodigosError.style.display = 'none';
+        
+        const data = {
+          nome: document.getElementById('encNome').value,
+          contacto: document.getElementById('encContacto').value,
+          email: document.getElementById('encEmail').value,
+          bi: document.getElementById('encBI').value,
+          profissao: document.getElementById('encProfissao').value,
+          endereco: document.getElementById('encEndereco').value,
+          relacao: document.getElementById('encRelacao').value,
+          filhos: codigosInput.split(',').map(s => s.trim()).filter(Boolean)
+        };
+        
+        console.log('Encarregado atualizado:', data);
+        
+        // Mostrar notificação de sucesso
+        if (typeof Utils !== 'undefined' && Utils.mostrarNotificacao) {
+          Utils.mostrarNotificacao('Encarregado atualizado com sucesso!', 'success');
+        }
+        
+        // Fechar o modal
+        bootstrap.Modal.getInstance(modalEl).hide();
+      });
+
+      // Limpar o formulário ao fechar o modal
+      modalEl.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('formEditarEncarregado').reset();
+      });
+    });
+  </script>
 </body>
 </html>

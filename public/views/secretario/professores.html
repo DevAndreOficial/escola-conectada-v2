@@ -202,16 +202,26 @@
       </div>
     </aside>
     <main class="main-content">
+      <!-- Header -->
       <header class="main-header">
         <div class="header-left">
-          <button class="mobile-toggle">☰</button>
-          <h1 class="header-title">Professores</h1>
+          <button class="mobile-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <h1 class="header-title">Dashboard</h1>
         </div>
         <div class="header-right">
           <div class="header-user">
-            <div class="header-user-avatar">AD</div>
-            <div class="header-user-info"><span class="header-user-name">Administrador</span><span
-                class="header-user-role">Administração</span></div>
+            <div class="header-user-avatar">SC</div>
+            <div class="header-user-info">
+              <span class="header-user-name">Secretário</span>
+              <span class="header-user-role">Secretária</span>
+            </div>
           </div>
         </div>
       </header>
@@ -222,7 +232,6 @@
             <h2 class="page-title">Gestão de Professores</h2>
             <p class="page-subtitle">Lista de docentes registados no sistema</p>
           </div>
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profModal">Novo Professor</button>
         </div>
 
         <!-- Filters -->
@@ -246,7 +255,7 @@
                 <label class="form-label">Turma</label>
                 <select id="filterProfTurma" class="form-control form-select">
                   <option value="">Todas</option>
-                  <option value="1">Turma A1 — Manhã — A101</option>
+                  <option value="1">INFGEST-10AD1 — Manhã — A101</option>
                   <option value="2">Turma B1 — Tarde — B202</option>
                   <option value="3">Turma C1 — Noite — C303</option>
                 </select>
@@ -387,13 +396,15 @@
                       <div class="form-check">
                         <input class="form-check-input turma-checkbox" type="checkbox" id="turma_1" value="1"
                           name="turmas">
-                        <label class="form-check-label" for="turma_1">INFO-10AD <small class="text-muted">• Turno: Manhã —
+                        <label class="form-check-label" for="turma_1">INFO-10AD <small class="text-muted">• Turno: Manhã
+                            —
                             Clase: 10ª — Sala: A101 — Curso: Informática</small></label>
                       </div>
                       <div class="form-check">
                         <input class="form-check-input turma-checkbox" type="checkbox" id="turma_2" value="2"
                           name="turmas">
-                        <label class="form-check-label" for="turma_2">EIA-11AD <small class="text-muted">• Turno: Tarde —
+                        <label class="form-check-label" for="turma_2">EIA-11AD <small class="text-muted">• Turno: Tarde
+                            —
                             Clase: 11ª — Sala: B202 — Curso: Electrónica</small></label>
                       </div>
                       <div class="form-check">
